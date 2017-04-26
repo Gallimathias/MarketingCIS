@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CIS\LUISClient.cs" />
+    <Compile Include="CognitiveServices\CognitiveServiceClient.cs" />
+    <Compile Include="CognitiveServices\LUISClient.cs" />
     <Compile Include="LUISService.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -16,23 +16,25 @@ namespace MarketingCIS.Serivce
     public partial class LUISService : ServiceBase
     {
         private Task task;
-        private CancellationToken cancelToken;
+        private CancellationTokenSource cancelTokenSource;
+        private LUISClient luisClient;
 
         public LUISService()
         {
             InitializeComponent();
-            cancelToken = new CancellationToken();
+            cancelTokenSource = new CancellationTokenSource();
+            luisClient = new LUISClient("","");
             
         }
 
         protected override void OnStart(string[] args)
         {
-            task = Task.Run(() => Process(), cancelToken);
+            task = Task.Run(() => Process(), cancelTokenSource.Token);
         }
 
         protected override void OnStop()
         {
-            
+            cancelTokenSource.Cancel(false);
         }
         
         private void Process()
