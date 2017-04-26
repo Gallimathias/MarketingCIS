@@ -45,6 +45,10 @@
   <ItemGroup>
     <Compile Include="CognitiveServices\CognitiveServiceClient.cs" />
     <Compile Include="CognitiveServices\LUISClient.cs" />
+    <Compile Include="JSON\Entity.cs" />
+    <Compile Include="JSON\Intent.cs" />
+    <Compile Include="JSON\Response.cs" />
+    <Compile Include="JSON\Topscoringintent.cs" />
     <Compile Include="LUISService.cs">
       <SubType>Component</SubType>
     </Compile>
