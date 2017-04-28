@@ -1,6 +1,6 @@
-﻿namespace MarketingCIS.Serivce.JSON
+﻿namespace MarketingCIS.Core.JSON
 {
-    public class Intent
+    public class Topscoringintent
     {
         public string intent { get; set; }
         public float score { get; set; }

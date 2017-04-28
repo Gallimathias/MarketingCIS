@@ -6,9 +6,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarketingCIS.Serivce.CognitiveServices
+namespace MarketingCIS.Core.CognitiveServices
 {
-    class LUISClient : CognitiveServiceClient
+    public class LUISClient : CognitiveServiceClient
     {
         public LUISClient(string appID, string key) : base(appID, key)
         {

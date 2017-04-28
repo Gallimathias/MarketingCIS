@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,12 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CognitiveServices\CognitiveServiceClient.cs" />
-    <Compile Include="CognitiveServices\LUISClient.cs" />
-    <Compile Include="JSON\Entity.cs" />
-    <Compile Include="JSON\Intent.cs" />
-    <Compile Include="JSON\Response.cs" />
-    <Compile Include="JSON\Topscoringintent.cs" />
     <Compile Include="LUISService.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -60,6 +55,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LUISService.resx">
+      <DependentUpon>LUISService.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarketingCIS.Core\MarketingCIS.Core.csproj">
+      <Project>{b2e5d50a-85e1-4c46-864c-066c65771d96}</Project>
+      <Name>MarketingCIS.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

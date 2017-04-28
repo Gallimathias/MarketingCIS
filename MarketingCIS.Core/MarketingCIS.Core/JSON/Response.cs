@@ -1,4 +1,4 @@
-﻿namespace MarketingCIS.Serivce.JSON
+﻿namespace MarketingCIS.Core.JSON
 {
     public class Response
     {

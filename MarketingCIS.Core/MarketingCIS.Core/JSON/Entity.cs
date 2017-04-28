@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarketingCIS.Serivce.JSON
+namespace MarketingCIS.Core.JSON
 {
     public class Entity
     {
