@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MarketingCIS.Core.CognitiveServices;
 
-namespace MarketingCIS.Serivce
+namespace MarketingCIS.Service
 {
     public partial class LUISService : ServiceBase
     {

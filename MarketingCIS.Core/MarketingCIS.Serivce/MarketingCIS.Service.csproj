@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4295B16A-7C96-4FC7-9D76-7AC2A107F175}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MarketingCIS.Serivce</RootNamespace>
-    <AssemblyName>MarketingCIS.Serivce</AssemblyName>
+    <RootNamespace>MarketingCIS.Service</RootNamespace>
+    <AssemblyName>MarketingCIS.Service</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

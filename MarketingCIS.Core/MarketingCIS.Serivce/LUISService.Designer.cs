@@ -1,4 +1,4 @@
-﻿namespace MarketingCIS.Serivce
+﻿namespace MarketingCIS.Service
 {
     partial class LUISService
     {
