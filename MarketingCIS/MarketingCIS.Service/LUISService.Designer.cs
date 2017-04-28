@@ -1,4 +1,4 @@
-﻿namespace MarketingCIS.Serivce
+﻿namespace MarketingCIS.Service
 {
     partial class LUISService
     {
@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            // 
+            // LUISService
+            // 
             this.ServiceName = "Service1";
+
         }
 
         #endregion

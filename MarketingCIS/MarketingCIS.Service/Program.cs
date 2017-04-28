@@ -5,7 +5,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarketingCIS.Serivce
+namespace MarketingCIS.Service
 {
     static class Program
     {

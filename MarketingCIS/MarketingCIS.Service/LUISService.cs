@@ -1,17 +1,9 @@
-﻿using MarketingCIS.Serivce.CIS;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.ServiceProcess;
-using System.Text;
+﻿using System.ServiceProcess;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Runtime.CompilerServices;
+using MarketingCIS.Core.CognitiveServices;
 
-namespace MarketingCIS.Serivce
+namespace MarketingCIS.Service
 {
     public partial class LUISService : ServiceBase
     {
@@ -23,8 +15,7 @@ namespace MarketingCIS.Serivce
         {
             InitializeComponent();
             cancelTokenSource = new CancellationTokenSource();
-            luisClient = new LUISClient("","");
-            
+            luisClient = new LUISClient("", "");
         }
 
         protected override void OnStart(string[] args)
@@ -36,7 +27,7 @@ namespace MarketingCIS.Serivce
         {
             cancelTokenSource.Cancel(false);
         }
-        
+
         private void Process()
         {
 

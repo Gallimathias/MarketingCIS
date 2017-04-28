@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace MarketingCIS.Serivce.CognitiveServices
+namespace MarketingCIS.Core.CognitiveServices
 {
-    internal abstract class CognitiveServiceClient 
+    public abstract class CognitiveServiceClient 
     {
         public string AppID { get; protected set; }
         public string BaseURL => $"{baseUrlString}/{serviceName}/{serviceVersion}/apps";

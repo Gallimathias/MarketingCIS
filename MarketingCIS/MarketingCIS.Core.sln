@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketingCIS.Core", "MarketingCIS.Core\MarketingCIS.Core.csproj", "{B2E5D50A-85E1-4C46-864C-066C65771D96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketingCIS.Serivce", "MarketingCIS.Serivce\MarketingCIS.Serivce.csproj", "{4295B16A-7C96-4FC7-9D76-7AC2A107F175}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketingCIS.Service", "MarketingCIS.Service\MarketingCIS.Service.csproj", "{4295B16A-7C96-4FC7-9D76-7AC2A107F175}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
