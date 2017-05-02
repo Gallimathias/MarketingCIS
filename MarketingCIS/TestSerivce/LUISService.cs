@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using MarketingCIS.Core;
 
 namespace TestSerivce
 {
@@ -18,7 +19,7 @@ namespace TestSerivce
         {
             //InitializeComponent();
             cancelTokenSource = new CancellationTokenSource();
-            luisClient = new LUISClient("", "");
+            luisClient = new LUISClient(ConfigMgt.LuisAppId, ConfigMgt.LuisAppKey);
         }
 
         public  void OnStart(string[] args)

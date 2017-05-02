@@ -10,6 +10,7 @@ namespace MarketingCIS.Core.JSON
     {
         public string version { get; set; }
         public string productName { get; set; }
-        
+        public string luisAppId { get; internal set; }
+        public string luisAppKey { get; internal set; }
     }
 }

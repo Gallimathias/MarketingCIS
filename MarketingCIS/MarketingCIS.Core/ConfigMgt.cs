@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 
 namespace MarketingCIS.Core
 {
-    static class ConfigMgt
+    public static class ConfigMgt
     {
         private static Config config;
         private static FileInfo configFile;
+
+        public static string LuisAppId { get { return config.luisAppId; } internal set { config.luisAppId = value; } }
+        public static string LuisAppKey { get { return config.luisAppKey; } internal set { config.luisAppKey = value; } }
 
         public static void GetConfigFrom(string fullName)
         {
