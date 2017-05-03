@@ -12,5 +12,8 @@ namespace MarketingCIS.Core.JSON
         public string productName { get; set; }
         public string luisAppId { get; internal set; }
         public string luisAppKey { get; internal set; }
+        public string mailHost { get; internal set; }
+        public int mailPort { get; internal set; }
+        public bool mailSSL { get; internal set; }
     }
 }
