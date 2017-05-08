@@ -1,0 +1,17 @@
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Service.exe.config
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Service.exe
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Service.pdb
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Core.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\MailKit.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\MimeKit.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Core.pdb
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\Newtonsoft.Json.xml
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\MailKit.xml
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\MimeKit.xml
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.csprojResolveAssemblyReference.cache
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.LUISService.resources
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.csproj.GenerateResource.Cache
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.exe
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.pdb

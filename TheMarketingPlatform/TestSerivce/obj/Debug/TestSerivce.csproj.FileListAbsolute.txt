@@ -1,0 +1,15 @@
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\obj\Debug\TestSerivce.csprojResolveAssemblyReference.cache
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\bin\Debug\TestSerivce.exe.config
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\bin\Debug\TestSerivce.exe
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\bin\Debug\TestSerivce.pdb
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\bin\Debug\TheMarketingPlatform.Core.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\bin\Debug\MailKit.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\bin\Debug\MimeKit.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\bin\Debug\TheMarketingPlatform.Core.pdb
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\bin\Debug\Newtonsoft.Json.xml
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\bin\Debug\MailKit.xml
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\bin\Debug\MimeKit.xml
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\obj\Debug\TestSerivce.exe
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TestSerivce\obj\Debug\TestSerivce.pdb
