@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TheMarketingPlatform.Core;
 
-namespace TestSerivce
+namespace TestService
 {
     class LUISService
     {

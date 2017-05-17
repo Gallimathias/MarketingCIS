@@ -64,7 +64,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TheMarketingPlatform.Core\TheMarketingPlatform.Core.csproj">
       <Project>{b2e5d50a-85e1-4c46-864c-066c65771d96}</Project>
-      <Name>MarketingCIS.Core</Name>
+      <Name>TheMarketingPlatform.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

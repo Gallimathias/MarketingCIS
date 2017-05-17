@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatform.Core", "TheMarketingPlatform.Core\TheMarketingPlatform.Core.csproj", "{B2E5D50A-85E1-4C46-864C-066C65771D96}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatform.Service", "TheMarketingPlatform.Service\TheMarketingPlatform.Service.csproj", "{4295B16A-7C96-4FC7-9D76-7AC2A107F175}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSerivce", "TestSerivce\TestSerivce.csproj", "{35F05B41-8CC4-486C-A2AB-4E3A228FC835}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestService", "TestSerivce\TestService.csproj", "{35F05B41-8CC4-486C-A2AB-4E3A228FC835}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
