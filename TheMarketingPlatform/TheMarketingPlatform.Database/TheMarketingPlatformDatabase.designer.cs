@@ -23,7 +23,7 @@ namespace TheMarketingPlatform.Database
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TheMarketingPlatform")]
-	public partial class TheMarketingPlatformDatabaseDataContext : System.Data.Linq.DataContext
+	internal partial class TheMarketingPlatformDatabaseDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -42,9 +42,9 @@ namespace TheMarketingPlatform.Database
     partial void InsertMail(Mail instance);
     partial void UpdateMail(Mail instance);
     partial void DeleteMail(Mail instance);
-    partial void InsertMailAttachments(MailAttachments instance);
-    partial void UpdateMailAttachments(MailAttachments instance);
-    partial void DeleteMailAttachments(MailAttachments instance);
+    partial void InsertMailAttachment(MailAttachment instance);
+    partial void UpdateMailAttachment(MailAttachment instance);
+    partial void DeleteMailAttachment(MailAttachment instance);
     partial void InsertMailReceiver(MailReceiver instance);
     partial void UpdateMailReceiver(MailReceiver instance);
     partial void DeleteMailReceiver(MailReceiver instance);
@@ -112,11 +112,11 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<MailAttachments> MailAttachments
+		public System.Data.Linq.Table<MailAttachment> MailAttachment
 		{
 			get
 			{
-				return this.GetTable<MailAttachments>();
+				return this.GetTable<MailAttachment>();
 			}
 		}
 		
@@ -800,7 +800,7 @@ namespace TheMarketingPlatform.Database
 		
 		private EntitySet<LuisResponse> _LuisResponse;
 		
-		private EntitySet<MailAttachments> _MailAttachments;
+		private EntitySet<MailAttachment> _MailAttachment;
 		
 		private EntitySet<MailReceiver> _MailReceiver;
 		
@@ -823,7 +823,7 @@ namespace TheMarketingPlatform.Database
 		public Mail()
 		{
 			this._LuisResponse = new EntitySet<LuisResponse>(new Action<LuisResponse>(this.attach_LuisResponse), new Action<LuisResponse>(this.detach_LuisResponse));
-			this._MailAttachments = new EntitySet<MailAttachments>(new Action<MailAttachments>(this.attach_MailAttachments), new Action<MailAttachments>(this.detach_MailAttachments));
+			this._MailAttachment = new EntitySet<MailAttachment>(new Action<MailAttachment>(this.attach_MailAttachment), new Action<MailAttachment>(this.detach_MailAttachment));
 			this._MailReceiver = new EntitySet<MailReceiver>(new Action<MailReceiver>(this.attach_MailReceiver), new Action<MailReceiver>(this.detach_MailReceiver));
 			OnCreated();
 		}
@@ -941,16 +941,16 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Mail_MailAttachments", Storage="_MailAttachments", ThisKey="Id", OtherKey="MailId")]
-		public EntitySet<MailAttachments> MailAttachments
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Mail_MailAttachment", Storage="_MailAttachment", ThisKey="Id", OtherKey="MailId")]
+		public EntitySet<MailAttachment> MailAttachment
 		{
 			get
 			{
-				return this._MailAttachments;
+				return this._MailAttachment;
 			}
 			set
 			{
-				this._MailAttachments.Assign(value);
+				this._MailAttachment.Assign(value);
 			}
 		}
 		
@@ -999,13 +999,13 @@ namespace TheMarketingPlatform.Database
 			entity.Mail = null;
 		}
 		
-		private void attach_MailAttachments(MailAttachments entity)
+		private void attach_MailAttachment(MailAttachment entity)
 		{
 			this.SendPropertyChanging();
 			entity.Mail = this;
 		}
 		
-		private void detach_MailAttachments(MailAttachments entity)
+		private void detach_MailAttachment(MailAttachment entity)
 		{
 			this.SendPropertyChanging();
 			entity.Mail = null;
@@ -1024,8 +1024,8 @@ namespace TheMarketingPlatform.Database
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MailAttachments")]
-	public partial class MailAttachments : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MailAttachment")]
+	public partial class MailAttachment : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -1054,7 +1054,7 @@ namespace TheMarketingPlatform.Database
     partial void OnFileExtensionChanged();
     #endregion
 		
-		public MailAttachments()
+		public MailAttachment()
 		{
 			this._Mail = default(EntityRef<Mail>);
 			OnCreated();
@@ -1144,7 +1144,7 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Mail_MailAttachments", Storage="_Mail", ThisKey="MailId", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Mail_MailAttachment", Storage="_Mail", ThisKey="MailId", OtherKey="Id", IsForeignKey=true)]
 		public Mail Mail
 		{
 			get
@@ -1161,12 +1161,12 @@ namespace TheMarketingPlatform.Database
 					if ((previousValue != null))
 					{
 						this._Mail.Entity = null;
-						previousValue.MailAttachments.Remove(this);
+						previousValue.MailAttachment.Remove(this);
 					}
 					this._Mail.Entity = value;
 					if ((value != null))
 					{
-						value.MailAttachments.Add(this);
+						value.MailAttachment.Add(this);
 						this._MailId = value.Id;
 					}
 					else
