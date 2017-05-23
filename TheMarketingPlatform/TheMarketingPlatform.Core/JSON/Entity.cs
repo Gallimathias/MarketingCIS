@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,12 @@ namespace TheMarketingPlatform.Core.JSON
 {
     public class Entity
     {
-        public string entity { get; set; }
-        public string type { get; set; }
-        public int startIndex { get; set; }
-        public int endIndex { get; set; }
-        public float score { get; set; }
+        [JsonProperty("entity")]
+        public string EntityName { get; set; }
+        public string Type { get; set; }
+        public int StartIndex { get; set; }
+        public int EndIndex { get; set; }
+        public float Score { get; set; }
     }
 
 }

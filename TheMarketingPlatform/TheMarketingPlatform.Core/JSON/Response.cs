@@ -2,10 +2,10 @@
 {
     public class Response
     {
-        public string query { get; set; }
-        public Topscoringintent topScoringIntent { get; set; }
-        public Intent[] intents { get; set; }
-        public Entity[] entities { get; set; }
+        public string Query { get; set; }
+        public Intent TopScoringIntent { get; set; }
+        public Intent[] Intents { get; set; }
+        public Entity[] Entities { get; set; }
     }
 
 }
