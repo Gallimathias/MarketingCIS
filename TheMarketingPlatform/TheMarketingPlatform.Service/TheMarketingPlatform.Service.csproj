@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>TheMarketingPlatform.Service</RootNamespace>
     <AssemblyName>TheMarketingPlatform.Service</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MimeKit, Version=1.16.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
@@ -44,14 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigType.cs" />
     <Compile Include="LUISService.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="LUISService.Designer.cs">
       <DependentUpon>LUISService.cs</DependentUpon>
     </Compile>
+    <Compile Include="MailService.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -65,6 +72,14 @@
     <ProjectReference Include="..\TheMarketingPlatform.Core\TheMarketingPlatform.Core.csproj">
       <Project>{b2e5d50a-85e1-4c46-864c-066c65771d96}</Project>
       <Name>TheMarketingPlatform.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheMarketingPlatform.Database\TheMarketingPlatform.Database.csproj">
+      <Project>{19B71276-05A3-4765-9351-FCB1B3AA3A3E}</Project>
+      <Name>TheMarketingPlatform.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheMarketingPlatform.Mail\TheMarketingPlatform.Mail.csproj">
+      <Project>{5A7796E5-8003-4379-9EB0-E9F64F3644A5}</Project>
+      <Name>TheMarketingPlatform.Mail</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

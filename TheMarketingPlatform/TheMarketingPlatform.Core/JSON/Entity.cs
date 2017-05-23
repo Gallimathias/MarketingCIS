@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TheMarketingPlatform.Core.JSON
 {
-    public class Entity
+    internal class Entity
     {
         [JsonProperty("entity")]
         public string EntityName { get; set; }

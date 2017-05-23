@@ -4,6 +4,6 @@
     [From] NVARCHAR(254) NOT NULL, 
     [Subject] NVARCHAR(254) NULL, 
     [Body] NVARCHAR(MAX) NOT NULL, 
-    [TimeStamp] DATETIME NOT NULL, 
+    [TimeStamp] DATETIMEOFFSET NOT NULL, 
     CONSTRAINT [PK_Mail] PRIMARY KEY (Id)
 )

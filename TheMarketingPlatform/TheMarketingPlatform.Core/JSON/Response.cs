@@ -1,6 +1,6 @@
 ﻿namespace TheMarketingPlatform.Core.JSON
 {
-    public class Response
+    internal class Response
     {
         public string Query { get; set; }
         public Intent TopScoringIntent { get; set; }
