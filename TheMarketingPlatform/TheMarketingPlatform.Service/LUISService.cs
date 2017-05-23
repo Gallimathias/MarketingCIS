@@ -1,6 +1,7 @@
 ﻿using System.ServiceProcess;
 using System.Threading;
 using System.Threading.Tasks;
+using TheMarketingPlatform.Core;
 using TheMarketingPlatform.Core.CognitiveServices;
 
 namespace TheMarketingPlatform.Service
