@@ -16,7 +16,7 @@ namespace TheMarketingPlatform.Service
         {
             InitializeComponent();
             cancelTokenSource = new CancellationTokenSource();
-            luisClient = new LUISClient(ConfigMgt.LuisAppId, ConfigMgt.LuisAppKey);
+            luisClient = new LUISClient(ConfigManagement.LuisAppId, ConfigManagement.LuisAppKey);
         }
 
         protected override void OnStart(string[] args)
