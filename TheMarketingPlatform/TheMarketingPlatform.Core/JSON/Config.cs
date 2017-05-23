@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheMarketingPlatform.Core.JSON
 {
-    internal class Config
+    public class Config
     {
         public string Version { get; set; }
         public string ProductName { get; set; }

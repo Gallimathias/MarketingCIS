@@ -15,3 +15,23 @@ C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\The
 C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.csproj.GenerateResource.Cache
 C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.exe
 C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.pdb
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.csprojResolveAssemblyReference.cache
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.exe
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.pdb
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Service.exe.config
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Service.exe
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Service.pdb
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Core.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Database.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Mail.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatfrom.CognitiveServices.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\Newtonsoft.Json.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\MailKit.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\BouncyCastle.Crypto.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Core.pdb
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Database.pdb
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Database.dll.config
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatform.Mail.pdb
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\TheMarketingPlatfrom.CognitiveServices.pdb
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\Newtonsoft.Json.xml
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\bin\Debug\MailKit.xml

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace TheMarketingPlatform.Core.CognitiveServices
 {
-    public abstract class CognitiveServiceClient 
+    public abstract class CognitiveServiceClient<TResponse> 
     {
         public string AppID { get; protected set; }
         public string BaseURL => $"{baseUrlString}/{serviceName}/{serviceVersion}/apps";
@@ -20,11 +21,14 @@ namespace TheMarketingPlatform.Core.CognitiveServices
             this.key = key;
             baseUrlString = "westus.api.cognitive.microsoft.com";
             serviceVersion = "v2.0";
-            serviceName = "luis";
+            serviceName = "";
             staging = true;
             verbose = true;
             dateTimeOffset = new DateTimeOffset();
         }
-               
+
+        protected TResponse GetResult(string result) => JsonConvert.DeserializeObject<TResponse>(result);
+
+
     }
 }

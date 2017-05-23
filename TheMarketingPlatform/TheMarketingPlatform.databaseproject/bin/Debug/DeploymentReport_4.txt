@@ -1,0 +1,29 @@
+﻿** Hervorhebungen
+     Tabellen, die neu erstellt werden.
+       Kein
+     Gruppierte Indizes, die gelöscht werden.
+       Kein
+     Gruppierte Indizes, die erstellt werden.
+       Kein
+     Mögliche Datenprobleme
+       Die Spalte "[dbo].[Mail].[From]" wird gelöscht, es könnte zu einem Datenverlust kommen.
+
+** Benutzeraktionen
+     Umbenennen
+       [dbo].[PK_MailAddresses] (Primärschlüssel)
+       [dbo].[FK_MailAddresses_Mail] (Fremdschlüssel)
+     Ändern
+       [dbo].[LuisResponse] (Tabelle)
+       [dbo].[Mail] (Tabelle)
+     Erstellen
+       [dbo].[MailAddresses] (Tabelle)
+       [dbo].[FK_MailAddresses_Mail] (Fremdschlüssel)
+
+** Unterstützende Aktionen
+     Löschen
+       [dbo].[AK_LuisResponse_MailId_TimeStamp] (Unique-Einschränkung)
+     Erstellen
+       [dbo].[AK_LuisResponse_MailId_TimeStamp] (Unique-Einschränkung)
+
+Die Spalte "[dbo].[Mail].[From]" wird gelöscht, es könnte zu einem Datenverlust kommen.
+

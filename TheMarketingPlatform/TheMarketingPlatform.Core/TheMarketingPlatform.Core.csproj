@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CognitiveServices\CognitiveServiceClient.cs" />
-    <Compile Include="CognitiveServices\LUISClient.cs" />
     <Compile Include="ConfigManagement.cs" />
     <Compile Include="JSON\Config.cs" />
     <Compile Include="JSON\Entity.cs" />

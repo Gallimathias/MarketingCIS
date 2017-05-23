@@ -47,12 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigType.cs" />
-    <Compile Include="LUISService.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="LUISService.Designer.cs">
-      <DependentUpon>LUISService.cs</DependentUpon>
-    </Compile>
+    <Compile Include="LUISService.cs" />
     <Compile Include="MailService.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -62,11 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="LUISService.resx">
-      <DependentUpon>LUISService.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TheMarketingPlatform.Core\TheMarketingPlatform.Core.csproj">
@@ -80,6 +70,10 @@
     <ProjectReference Include="..\TheMarketingPlatform.Mail\TheMarketingPlatform.Mail.csproj">
       <Project>{5A7796E5-8003-4379-9EB0-E9F64F3644A5}</Project>
       <Name>TheMarketingPlatform.Mail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheMarketingPlatfrom.CognitiveServices\TheMarketingPlatfrom.CognitiveServices.csproj">
+      <Project>{ea8df9fb-70fb-4d45-8c43-34666b121865}</Project>
+      <Name>TheMarketingPlatfrom.CognitiveServices</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

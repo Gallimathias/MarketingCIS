@@ -2,7 +2,7 @@
 
 namespace TheMarketingPlatform.Core.JSON
 {
-    internal class Intent
+    public class Intent
     {
         [JsonProperty("intent")]
         public string IntentName { get; set; }

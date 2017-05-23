@@ -91,4 +91,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[PK_MailAttachment]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="8edd40ab-a604-4440-898a-9e8c9c9b3f30" ChangeDateTime="05/23/2017 18:10:49">
+    <Property Name="ElementName" Value="[dbo].[MailAddresses].[Receiver]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAddresses]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MailAddress" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c28877ba-f20b-4c7c-b4af-ad73e1f4f5e8" ChangeDateTime="05/23/2017 18:11:03">
+    <Property Name="ElementName" Value="[dbo].[PK_MailReceiver]" />
+    <Property Name="ElementType" Value="SqlPrimaryKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAddresses]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[PK_MailAddresses]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="55dd02df-9341-4f93-9e9b-e05a83c1063b" ChangeDateTime="05/23/2017 18:11:09">
+    <Property Name="ElementName" Value="[dbo].[FK_MailReceiver_Mail]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAddresses]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_MailAddresses_Mail]" />
+  </Operation>
 </Operations>

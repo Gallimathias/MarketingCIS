@@ -45,9 +45,9 @@ namespace TheMarketingPlatform.Database
     partial void InsertMailAttachment(MailAttachment instance);
     partial void UpdateMailAttachment(MailAttachment instance);
     partial void DeleteMailAttachment(MailAttachment instance);
-    partial void InsertMailReceiver(MailReceiver instance);
-    partial void UpdateMailReceiver(MailReceiver instance);
-    partial void DeleteMailReceiver(MailReceiver instance);
+    partial void InsertMailAddresses(MailAddresses instance);
+    partial void UpdateMailAddresses(MailAddresses instance);
+    partial void DeleteMailAddresses(MailAddresses instance);
     #endregion
 		
 		public MainDatabaseContext() : 
@@ -120,11 +120,11 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<MailReceiver> MailReceiver
+		public System.Data.Linq.Table<MailAddresses> MailAddresses
 		{
 			get
 			{
-				return this.GetTable<MailReceiver>();
+				return this.GetTable<MailAddresses>();
 			}
 		}
 	}
@@ -585,7 +585,7 @@ namespace TheMarketingPlatform.Database
 		
 		private int _MailId;
 		
-		private System.DateTime _TimeStamp;
+		private System.DateTimeOffset _TimeStamp;
 		
 		private EntitySet<LuisEntity> _LuisEntity;
 		
@@ -601,7 +601,7 @@ namespace TheMarketingPlatform.Database
     partial void OnIdChanged();
     partial void OnMailIdChanging(int value);
     partial void OnMailIdChanged();
-    partial void OnTimeStampChanging(System.DateTime value);
+    partial void OnTimeStampChanging(System.DateTimeOffset value);
     partial void OnTimeStampChanged();
     #endregion
 		
@@ -657,8 +657,8 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeStamp", DbType="DateTime NOT NULL")]
-		public System.DateTime TimeStamp
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeStamp", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset TimeStamp
 		{
 			get
 			{
@@ -790,8 +790,6 @@ namespace TheMarketingPlatform.Database
 		
 		private int _Id;
 		
-		private string _From;
-		
 		private string _Subject;
 		
 		private string _Body;
@@ -802,7 +800,7 @@ namespace TheMarketingPlatform.Database
 		
 		private EntitySet<MailAttachment> _MailAttachment;
 		
-		private EntitySet<MailReceiver> _MailReceiver;
+		private EntitySet<MailAddresses> _MailAddresses;
 		
     #region Definitionen der Erweiterungsmethoden
     partial void OnLoaded();
@@ -810,8 +808,6 @@ namespace TheMarketingPlatform.Database
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnFromChanging(string value);
-    partial void OnFromChanged();
     partial void OnSubjectChanging(string value);
     partial void OnSubjectChanged();
     partial void OnBodyChanging(string value);
@@ -824,7 +820,7 @@ namespace TheMarketingPlatform.Database
 		{
 			this._LuisResponse = new EntitySet<LuisResponse>(new Action<LuisResponse>(this.attach_LuisResponse), new Action<LuisResponse>(this.detach_LuisResponse));
 			this._MailAttachment = new EntitySet<MailAttachment>(new Action<MailAttachment>(this.attach_MailAttachment), new Action<MailAttachment>(this.detach_MailAttachment));
-			this._MailReceiver = new EntitySet<MailReceiver>(new Action<MailReceiver>(this.attach_MailReceiver), new Action<MailReceiver>(this.detach_MailReceiver));
+			this._MailAddresses = new EntitySet<MailAddresses>(new Action<MailAddresses>(this.attach_MailAddresses), new Action<MailAddresses>(this.detach_MailAddresses));
 			OnCreated();
 		}
 		
@@ -844,26 +840,6 @@ namespace TheMarketingPlatform.Database
 					this._Id = value;
 					this.SendPropertyChanged("Id");
 					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[From]", Storage="_From", DbType="NVarChar(254) NOT NULL", CanBeNull=false)]
-		public string From
-		{
-			get
-			{
-				return this._From;
-			}
-			set
-			{
-				if ((this._From != value))
-				{
-					this.OnFromChanging(value);
-					this.SendPropertyChanging();
-					this._From = value;
-					this.SendPropertyChanged("From");
-					this.OnFromChanged();
 				}
 			}
 		}
@@ -954,16 +930,16 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Mail_MailReceiver", Storage="_MailReceiver", ThisKey="Id", OtherKey="MailId")]
-		public EntitySet<MailReceiver> MailReceiver
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Mail_MailAddresses", Storage="_MailAddresses", ThisKey="Id", OtherKey="MailId")]
+		public EntitySet<MailAddresses> MailAddresses
 		{
 			get
 			{
-				return this._MailReceiver;
+				return this._MailAddresses;
 			}
 			set
 			{
-				this._MailReceiver.Assign(value);
+				this._MailAddresses.Assign(value);
 			}
 		}
 		
@@ -1011,13 +987,13 @@ namespace TheMarketingPlatform.Database
 			entity.Mail = null;
 		}
 		
-		private void attach_MailReceiver(MailReceiver entity)
+		private void attach_MailAddresses(MailAddresses entity)
 		{
 			this.SendPropertyChanging();
 			entity.Mail = this;
 		}
 		
-		private void detach_MailReceiver(MailReceiver entity)
+		private void detach_MailAddresses(MailAddresses entity)
 		{
 			this.SendPropertyChanging();
 			entity.Mail = null;
@@ -1199,15 +1175,17 @@ namespace TheMarketingPlatform.Database
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MailReceiver")]
-	public partial class MailReceiver : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MailAddresses")]
+	public partial class MailAddresses : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _MailId;
 		
-		private string _Receiver;
+		private string _MailAddress;
+		
+		private System.Data.Linq.Binary _Type;
 		
 		private EntityRef<Mail> _Mail;
 		
@@ -1217,11 +1195,13 @@ namespace TheMarketingPlatform.Database
     partial void OnCreated();
     partial void OnMailIdChanging(int value);
     partial void OnMailIdChanged();
-    partial void OnReceiverChanging(string value);
-    partial void OnReceiverChanged();
+    partial void OnMailAddressChanging(string value);
+    partial void OnMailAddressChanged();
+    partial void OnTypeChanging(System.Data.Linq.Binary value);
+    partial void OnTypeChanged();
     #endregion
 		
-		public MailReceiver()
+		public MailAddresses()
 		{
 			this._Mail = default(EntityRef<Mail>);
 			OnCreated();
@@ -1251,27 +1231,47 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Receiver", DbType="NVarChar(254) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Receiver
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailAddress", DbType="NVarChar(254) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MailAddress
 		{
 			get
 			{
-				return this._Receiver;
+				return this._MailAddress;
 			}
 			set
 			{
-				if ((this._Receiver != value))
+				if ((this._MailAddress != value))
 				{
-					this.OnReceiverChanging(value);
+					this.OnMailAddressChanging(value);
 					this.SendPropertyChanging();
-					this._Receiver = value;
-					this.SendPropertyChanged("Receiver");
-					this.OnReceiverChanged();
+					this._MailAddress = value;
+					this.SendPropertyChanged("MailAddress");
+					this.OnMailAddressChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Mail_MailReceiver", Storage="_Mail", ThisKey="MailId", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Binary(1) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Mail_MailAddresses", Storage="_Mail", ThisKey="MailId", OtherKey="Id", IsForeignKey=true)]
 		public Mail Mail
 		{
 			get
@@ -1288,12 +1288,12 @@ namespace TheMarketingPlatform.Database
 					if ((previousValue != null))
 					{
 						this._Mail.Entity = null;
-						previousValue.MailReceiver.Remove(this);
+						previousValue.MailAddresses.Remove(this);
 					}
 					this._Mail.Entity = value;
 					if ((value != null))
 					{
-						value.MailReceiver.Add(this);
+						value.MailAddresses.Add(this);
 						this._MailId = value.Id;
 					}
 					else
