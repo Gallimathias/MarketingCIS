@@ -15,3 +15,8 @@ C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\The
 C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.csproj.GenerateResource.Cache
 C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.exe
 C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.pdb
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.csprojResolveAssemblyReference.cache
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.LUISService.resources
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.csproj.GenerateResource.Cache
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.exe
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Service\obj\Debug\TheMarketingPlatform.Service.pdb
