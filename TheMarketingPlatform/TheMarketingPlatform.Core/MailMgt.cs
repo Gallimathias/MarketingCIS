@@ -1,7 +1,6 @@
 ﻿using MailKit.Net.Imap;
 using MailKit.Net.Pop3;
 using MailKit.Net.Smtp;
-using TheMarketingPlatform.Core.Mail;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +11,19 @@ namespace TheMarketingPlatform.Core
 {
     public static class MailMgt
     {
-        private static MailClient mailClient;
+        private static List<ImapClient> imapClients;
 
+        public static void LoadMail()
+        {
+
+        }
+
+        public static void GetAllMails()
+        {
+            foreach (var imapClient in imapClients)
+            {
+            }
+        }
         
     }
 }

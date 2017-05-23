@@ -56,14 +56,12 @@
     <Compile Include="CognitiveServices\CognitiveServiceClient.cs" />
     <Compile Include="CognitiveServices\LUISClient.cs" />
     <Compile Include="ConfigMgt.cs" />
-    <Compile Include="Mail\ConnectionType.cs" />
     <Compile Include="JSON\Config.cs" />
     <Compile Include="JSON\Entity.cs" />
     <Compile Include="JSON\Intent.cs" />
     <Compile Include="JSON\Response.cs" />
     <Compile Include="JSON\Topscoringintent.cs" />
     <Compile Include="MailMgt.cs" />
-    <Compile Include="Mail\MailClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
