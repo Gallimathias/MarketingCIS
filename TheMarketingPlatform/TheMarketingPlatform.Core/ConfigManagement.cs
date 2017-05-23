@@ -9,14 +9,10 @@ using System.Threading.Tasks;
 
 namespace TheMarketingPlatform.Core
 {
-    public class ConfigManagement
+    public class ConfigManagement : Dictionary<string, object>
     {
         private Config config;
         private FileInfo configFile;
-
-        public string LuisAppId { get { return config.LuisAppId; } set { config.LuisAppId = value; } }
-        public string LuisAppKey { get { return config.LuisAppKey; } set { config.LuisAppKey = value; } }
-
 
         public (bool, Exception) Load(string fullName)
         {
@@ -28,6 +24,10 @@ namespace TheMarketingPlatform.Core
             try
             {
                 config = JsonConvert.DeserializeObject<Config>(File.ReadAllText(fullName));
+
+                foreach (var setting in config.ToList())
+                    Add(setting.Key, setting.Value);
+
             }
             catch (Exception ex)
             {

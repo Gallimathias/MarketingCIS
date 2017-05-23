@@ -26,7 +26,7 @@ namespace TheMarketingPlatform.Service
 
         protected override void OnStart(string[] args)
         {
-            timer = new Timer(Process, SettingsHandler, 0, SettingsHandler.GetValue("MailService.Periode"));
+            timer = new Timer(Process, SettingsHandler, 0, (int)SettingsHandler["MailServicePeriod"]);
             base.OnStart(args);
         }
 

@@ -10,7 +10,20 @@ namespace TheMarketingPlatform.Core.JSON
     {
         public string Version { get; set; }
         public string ProductName { get; set; }
-        public string LuisAppId { get; internal set; }
-        public string LuisAppKey { get; internal set; }
+        public string LuisAppId { get; set; }
+        public string LuisAppKey { get; set; }
+        public int MailServicePeriod { get; set; }
+
+
+        internal IEnumerable<KeyValuePair<string, object>> ToList()
+        {
+            var tmpList = new List<KeyValuePair<string, object>>();
+
+            foreach (var propertie in GetType().GetProperties())
+                tmpList.Add(
+                    new KeyValuePair<string, object>(propertie.Name, propertie.GetValue(this)));
+
+            return tmpList;
+        }
     }
 }
