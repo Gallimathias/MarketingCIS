@@ -22,6 +22,20 @@ namespace TheMarketingPlatform.Database
         
         public Mail GetLastMessage() =>
             databaseContext.GetTable<Mail>().OrderByDescending(m => m.TimeStamp).FirstOrDefault();
-        
+
+        public void Insert(MimeMessage mimeMessage)
+        {
+            var mail = new Mail()
+            {
+                Body = mimeMessage.TextBody,
+                Subject = mimeMessage.Subject,
+                TimeStamp = mimeMessage.Date
+            };
+
+            databaseContext.GetTable<Mail>().InsertOnSubmit(mail);
+            databaseContext.SubmitChanges();
+
+
+        }
     }
 }

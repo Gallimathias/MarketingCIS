@@ -81,6 +81,10 @@
       <Project>{5A7796E5-8003-4379-9EB0-E9F64F3644A5}</Project>
       <Name>TheMarketingPlatform.Mail</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TheMarketingPlatfrom.CognitiveServices\TheMarketingPlatfrom.CognitiveServices.csproj">
+      <Project>{ea8df9fb-70fb-4d45-8c43-34666b121865}</Project>
+      <Name>TheMarketingPlatfrom.CognitiveServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,25 @@
+﻿** Hervorhebungen
+     Tabellen, die neu erstellt werden.
+       Kein
+     Gruppierte Indizes, die gelöscht werden.
+       Kein
+     Gruppierte Indizes, die erstellt werden.
+       Kein
+     Mögliche Datenprobleme
+       Kein
+
+** Benutzeraktionen
+     Erstellen
+       [dbo].[LuisEntity] (Tabelle)
+       [dbo].[LuisIntent] (Tabelle)
+       [dbo].[LuisResponse] (Tabelle)
+       [dbo].[Mail] (Tabelle)
+       [dbo].[MailAddresses] (Tabelle)
+       [dbo].[MailAttachment] (Tabelle)
+       [dbo].[FK_LuisEntity_LuisResponse] (Fremdschlüssel)
+       [dbo].[FK_LuisIntent_LuisResponse] (Fremdschlüssel)
+       [dbo].[FK_LuisResponse_Mail] (Fremdschlüssel)
+       [dbo].[FK_MailAddresses_Mail] (Fremdschlüssel)
+       [dbo].[FK_MailAttachment_Mail] (Fremdschlüssel)
+
+** Unterstützende Aktionen

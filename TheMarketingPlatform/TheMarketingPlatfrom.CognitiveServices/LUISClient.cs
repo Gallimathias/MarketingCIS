@@ -5,23 +5,27 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using TheMarketingPlatform.Core.CognitiveServices;
+using TheMarketingPlatform.Core.JSON;
 
-namespace TheMarketingPlatform.Core.CognitiveServices
+namespace TheMarketingPlatform.CognitiveServices
 {
-    public class LUISClient : CognitiveServiceClient
+    public class LUISClient : CognitiveServiceClient<Response>
     {
+
         public LUISClient(string appID, string key) : base(appID, key)
         {
+            serviceName = "luis";
         }
 
-        public void Reply(string message)
+        public Response Reply(string message)
         {
             var request = WebRequest.Create(
                 $"{BaseURL}/{AppID}?subscription-key={key}&staging={staging}&verbose={verbose}&timezoneOffset={dateTimeOffset.ToString("H.m")}&q={message}");
 
             using (var reader = new StreamReader(request.GetResponse().GetResponseStream()))
             {
-                reader.ReadToEnd();
+                return GetResult(reader.ReadToEnd());
             }
         }
     }
