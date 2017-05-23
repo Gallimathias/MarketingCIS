@@ -39,15 +39,8 @@
       <Column Name="Body" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="TimeStamp" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Association Name="Mail_LuisResponse" Member="LuisResponse" ThisKey="Id" OtherKey="MailId" Type="LuisResponse" />
-      <Association Name="Mail_MailAddresses" Member="MailAddresses" ThisKey="Id" OtherKey="MailId" Type="MailAddresses" />
       <Association Name="Mail_MailAttachment" Member="MailAttachment" ThisKey="Id" OtherKey="MailId" Type="MailAttachment" />
-    </Type>
-  </Table>
-  <Table Name="dbo.MailAddresses" Member="MailAddresses">
-    <Type Name="MailAddresses">
-      <Column Name="MailId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MailAddress" Type="System.String" DbType="NVarChar(254) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Mail_MailAddresses" Member="Mail" ThisKey="MailId" OtherKey="Id" Type="Mail" IsForeignKey="true" />
+      <Association Name="Mail_MailAddresses" Member="MailAddresses" ThisKey="Id" OtherKey="MailId" Type="MailAddresses" />
     </Type>
   </Table>
   <Table Name="dbo.MailAttachment" Member="MailAttachment">
@@ -57,6 +50,14 @@
       <Column Name="Attachment" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="FileExtension" Type="System.String" DbType="NVarChar(260)" CanBeNull="true" />
       <Association Name="Mail_MailAttachment" Member="Mail" ThisKey="MailId" OtherKey="Id" Type="Mail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MailAddresses" Member="MailAddresses">
+    <Type Name="MailAddresses">
+      <Column Name="MailId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MailAddress" Type="System.String" DbType="NVarChar(254) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.Data.Linq.Binary" DbType="Binary(1) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Mail_MailAddresses" Member="Mail" ThisKey="MailId" OtherKey="Id" Type="Mail" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

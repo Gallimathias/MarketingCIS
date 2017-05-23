@@ -40,7 +40,9 @@ namespace TheMarketingPlatform.Service
 
             var response = luisClient.Reply(mimeMessage.TextBody);
 
-            SettingsHandler.DatabaseController.Insert(mimeMessage);
+            var messageid = SettingsHandler.DatabaseController.Insert(mimeMessage);
+
+            SettingsHandler.DatabaseController.Insert(response, messageid);
         }
 
         internal void HandleMessages(MimeMessage[] mimeMessages)
