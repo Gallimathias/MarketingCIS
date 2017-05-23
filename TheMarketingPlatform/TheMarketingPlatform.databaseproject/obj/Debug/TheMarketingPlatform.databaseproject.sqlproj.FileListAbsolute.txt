@@ -1,0 +1,5 @@
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.databaseproject\bin\Debug\TheMarketingPlatform.databaseproject.dacpac
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.databaseproject\obj\Debug\TheMarketingPlatform.databaseproject.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.databaseproject\obj\Debug\TheMarketingPlatform.databaseproject.pdb
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.databaseproject\bin\Debug\TheMarketingPlatform.databaseproject.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.databaseproject\bin\Debug\TheMarketingPlatform.databaseproject.pdb
