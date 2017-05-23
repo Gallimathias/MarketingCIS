@@ -63,9 +63,50 @@ namespace TheMarketingPlatform.Database
 
             return mail.Id;
         }
-        public void Insert(Response response, int messageid)
+        public int Insert(Response response, int messageid)
         {
-            throw new NotImplementedException();
+            var luisResponse = new LuisResponse()
+            {
+                MailId = messageid,
+                TimeStamp = DateTimeOffset.Now
+            };
+
+            databaseContext.GetTable<LuisResponse>().InsertOnSubmit(luisResponse);
+            databaseContext.SubmitChanges();
+
+            var entities = new List<LuisEntity>();
+            foreach (var entity in response.Entities)
+            {
+                entities.Add(new LuisEntity()
+                {
+                    LuisResponseId = luisResponse.Id,
+                    Entity = entity.EntityName,
+                    StartIndex = entity.StartIndex,
+                    EndIndex = entity.EndIndex,
+                    Score = entity.Score,
+                    Type = entity.Type
+                });
+            }
+
+            databaseContext.GetTable<LuisEntity>().InsertAllOnSubmit(entities);
+
+            var intents = new List<LuisIntent>();
+
+            foreach (var intent in response.Intents)
+            {
+                intents.Add(new LuisIntent()
+                {
+                    LuisResponseId = luisResponse.Id,
+                    Intent = intent.IntentName,
+                    Score = intent.Score,
+                    IsTopScore = intent.IntentName == response.TopScoringIntent.IntentName
+                });
+            }
+
+            databaseContext.GetTable<LuisIntent>().InsertAllOnSubmit(intents);
+            databaseContext.SubmitChanges();
+
+            return luisResponse.Id;
         }
     }
 }

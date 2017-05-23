@@ -10,7 +10,7 @@ using System.Collections.Concurrent;
 
 namespace TheMarketingPlatform.Service
 {
-    internal partial class LUISService : ServiceBase
+    internal partial class LUISService
     {
         public SettingsHandler SettingsHandler { get; private set; }
 
@@ -23,23 +23,23 @@ namespace TheMarketingPlatform.Service
             SettingsHandler = settingsHandler;
         }
         
-        protected override void OnStart(string[] args)
+        private void StartProcess()
         {
-            
+            Task.Run(() =>
+            {
+                while (messageQueue.Count > 0)
+                    Process();
+
+            });
+
         }
 
-        protected override void OnStop()
-        {
-            
-        }
-        
         private void Process()
         {
             if (!messageQueue.TryDequeue(out MimeMessage mimeMessage))
                 return;
 
             var response = luisClient.Reply(mimeMessage.TextBody);
-
             var messageid = SettingsHandler.DatabaseController.Insert(mimeMessage);
 
             SettingsHandler.DatabaseController.Insert(response, messageid);
@@ -49,6 +49,8 @@ namespace TheMarketingPlatform.Service
         {
             foreach (var message in mimeMessages)
                 messageQueue.Enqueue(message);
+
+            StartProcess();
         }
     }
 }
