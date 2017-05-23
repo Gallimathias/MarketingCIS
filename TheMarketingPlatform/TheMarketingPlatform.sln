@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestService", "TestSerivce\
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TheMarketingPlatform.databaseproject", "TheMarketingPlatform.databaseproject\TheMarketingPlatform.databaseproject.sqlproj", "{8F96231B-0E33-4275-921A-43074CF567E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatform.Database", "TheMarketingPlatform.Database\TheMarketingPlatform.Database.csproj", "{19B71276-05A3-4765-9351-FCB1B3AA3A3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{8F96231B-0E33-4275-921A-43074CF567E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F96231B-0E33-4275-921A-43074CF567E5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F96231B-0E33-4275-921A-43074CF567E5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{19B71276-05A3-4765-9351-FCB1B3AA3A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19B71276-05A3-4765-9351-FCB1B3AA3A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19B71276-05A3-4765-9351-FCB1B3AA3A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19B71276-05A3-4765-9351-FCB1B3AA3A3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
