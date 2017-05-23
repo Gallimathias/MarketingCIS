@@ -14,4 +14,67 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Id" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="41462b17-1dbe-44cc-a752-e9cbbbaab425" ChangeDateTime="05/23/2017 10:04:26">
+    <Property Name="ElementName" Value="[dbo].[LuisScore].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[LuisScore]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MailId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="41752177-fc0e-42e0-a81c-73637f45dc74" ChangeDateTime="05/23/2017 10:07:00">
+    <Property Name="ElementName" Value="[dbo].[MailReceiver].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MailReceiver]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MailId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="81145bc8-e895-4204-a4af-3449ee8db789" ChangeDateTime="05/23/2017 10:08:30">
+    <Property Name="ElementName" Value="[dbo].[PK_LuisScore]" />
+    <Property Name="ElementType" Value="SqlPrimaryKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[LuisTopScore]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[PK_LuisTopScore]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e860af23-e7cd-4d52-9c71-6f951d5cfbf8" ChangeDateTime="05/23/2017 10:08:38">
+    <Property Name="ElementName" Value="[dbo].[FK_LuisScore_Mail]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[LuisTopScore]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_LuisTopScore_Mail]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6b13f5dc-a3c1-43e5-8811-775a3ffc6cfb" ChangeDateTime="05/23/2017 10:09:28">
+    <Property Name="ElementName" Value="[dbo].[LuisResponse].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[LuisResponse]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MailId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0514c05e-89cc-4884-9a2e-182cb1343826" ChangeDateTime="05/23/2017 10:12:41">
+    <Property Name="ElementName" Value="[dbo].[LuisTopScore].[MailId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[LuisTopScore]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LuisResponseId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c1f256cc-951a-4506-8456-9fc5fe13a488" ChangeDateTime="05/23/2017 10:13:23">
+    <Property Name="ElementName" Value="[dbo].[FK_LuisTopScore_Mail]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[LuisTopScore]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_LuisTopScore_LuisResponse]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="adeba05f-62e3-47b9-bd2d-e20beed54aa4" ChangeDateTime="05/23/2017 10:14:22">
+    <Property Name="ElementName" Value="[dbo].[LuisItent].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[LuisItent]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LuisResponseId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="52aa0260-f7c3-4541-869a-efbdd804ede2" ChangeDateTime="05/23/2017 10:18:07">
+    <Property Name="ElementName" Value="[dbo].[LuisEntity].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[LuisEntity]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LuisResponseId" />
+  </Operation>
 </Operations>
