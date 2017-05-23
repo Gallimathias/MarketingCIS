@@ -26,7 +26,7 @@ namespace TheMarketingPlatform.Service
 
         protected override void OnStart(string[] args)
         {
-            timer = new Timer(Process, SettingsHandler, 0, (int)SettingsHandler["MailServicePeriod"]);
+            timer = new Timer(Process, null, 0, (int)SettingsHandler["MailServicePeriod"]);
             base.OnStart(args);
         }
 
@@ -51,14 +51,6 @@ namespace TheMarketingPlatform.Service
         private void Process(object state)
         {
             manualResetEvent.WaitOne();
-
-            if (state == null || !(state is SettingsHandler))
-                return;
-
-
-            var settings = (SettingsHandler)state;
-
-
         }
     }
 }

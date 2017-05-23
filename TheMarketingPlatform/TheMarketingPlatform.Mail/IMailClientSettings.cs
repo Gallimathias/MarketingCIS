@@ -6,11 +6,11 @@ namespace TheMarketingPlatform.Mail
 {
     public interface IMailClientSettings
     {
-        MailClientType Type { get; set; }
-        SecureSocketOptions UseSsl { get; set; }
-        int Port { get; set; }
-        string Host { get; set; }
-        string Password { get; set; }
-        string UserName { get; set; }
+        MailClientType Type { get; }
+        bool UseSsl { get; }
+        int Port { get; }
+        string Host { get; }
+        string Password { get; }
+        string UserName { get; }
     }
 }
