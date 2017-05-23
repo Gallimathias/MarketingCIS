@@ -19,7 +19,6 @@ namespace TheMarketingPlatform.Service
 
         public LUISService(SettingsHandler settingsHandler)
         {
-            InitializeComponent();
             SettingsHandler = settingsHandler;
         }
         

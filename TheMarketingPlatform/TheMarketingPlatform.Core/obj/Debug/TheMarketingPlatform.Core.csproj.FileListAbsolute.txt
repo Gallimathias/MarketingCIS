@@ -14,6 +14,5 @@ D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPl
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\bin\Debug\TheMarketingPlatform.Core.pdb
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\bin\Debug\Newtonsoft.Json.dll
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\bin\Debug\Newtonsoft.Json.xml
-D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\obj\Debug\TheMarketingPlatform.Core.csprojResolveAssemblyReference.cache
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\obj\Debug\TheMarketingPlatform.Core.dll
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\obj\Debug\TheMarketingPlatform.Core.pdb

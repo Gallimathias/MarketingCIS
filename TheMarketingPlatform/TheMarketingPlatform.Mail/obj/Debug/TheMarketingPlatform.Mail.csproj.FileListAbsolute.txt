@@ -5,6 +5,5 @@ D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPl
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Mail\bin\Debug\MimeKit.dll
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Mail\bin\Debug\MailKit.xml
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Mail\bin\Debug\MimeKit.xml
-D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Mail\obj\Debug\TheMarketingPlatform.Mail.csprojResolveAssemblyReference.cache
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Mail\obj\Debug\TheMarketingPlatform.Mail.dll
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Mail\obj\Debug\TheMarketingPlatform.Mail.pdb
