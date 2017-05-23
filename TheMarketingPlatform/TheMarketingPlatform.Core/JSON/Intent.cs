@@ -1,9 +1,12 @@
-﻿namespace TheMarketingPlatform.Core.JSON
+﻿using Newtonsoft.Json;
+
+namespace TheMarketingPlatform.Core.JSON
 {
     public class Intent
     {
-        public string intent { get; set; }
-        public float score { get; set; }
+        [JsonProperty("intent")]
+        public string IntentName { get; set; }
+        public float Score { get; set; }
     }
 
 }
