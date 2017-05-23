@@ -1,0 +1,6 @@
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Database\bin\Debug\TheMarketingPlatform.Database.dll.config
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Database\bin\Debug\TheMarketingPlatform.Database.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Database\bin\Debug\TheMarketingPlatform.Database.pdb
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Database\obj\Debug\TheMarketingPlatform.Database.csprojResolveAssemblyReference.cache
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Database\obj\Debug\TheMarketingPlatform.Database.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Database\obj\Debug\TheMarketingPlatform.Database.pdb
