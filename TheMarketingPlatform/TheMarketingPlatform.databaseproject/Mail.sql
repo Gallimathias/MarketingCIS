@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Mail]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [From] NVARCHAR(254) NOT NULL, 
+    [Subject] NVARCHAR(254) NULL, 
+    [Body] NVARCHAR(MAX) NOT NULL, 
+    [TimeStamp] DATETIME NOT NULL
+)
