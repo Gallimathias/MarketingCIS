@@ -23,7 +23,7 @@ namespace TheMarketingPlatform.Database
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TheMarketingPlatform")]
-	internal partial class TheMarketingPlatformDatabaseDataContext : System.Data.Linq.DataContext
+	internal partial class MainDatabaseContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -50,31 +50,31 @@ namespace TheMarketingPlatform.Database
     partial void DeleteMailReceiver(MailReceiver instance);
     #endregion
 		
-		public TheMarketingPlatformDatabaseDataContext() : 
+		public MainDatabaseContext() : 
 				base(global::TheMarketingPlatform.Database.Properties.Settings.Default.TheMarketingPlatformConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public TheMarketingPlatformDatabaseDataContext(string connection) : 
+		public MainDatabaseContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public TheMarketingPlatformDatabaseDataContext(System.Data.IDbConnection connection) : 
+		public MainDatabaseContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public TheMarketingPlatformDatabaseDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public MainDatabaseContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public TheMarketingPlatformDatabaseDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public MainDatabaseContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -796,7 +796,7 @@ namespace TheMarketingPlatform.Database
 		
 		private string _Body;
 		
-		private System.DateTime _TimeStamp;
+		private System.DateTimeOffset _TimeStamp;
 		
 		private EntitySet<LuisResponse> _LuisResponse;
 		
@@ -816,7 +816,7 @@ namespace TheMarketingPlatform.Database
     partial void OnSubjectChanged();
     partial void OnBodyChanging(string value);
     partial void OnBodyChanged();
-    partial void OnTimeStampChanging(System.DateTime value);
+    partial void OnTimeStampChanging(System.DateTimeOffset value);
     partial void OnTimeStampChanged();
     #endregion
 		
@@ -908,8 +908,8 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeStamp", DbType="DateTime NOT NULL")]
-		public System.DateTime TimeStamp
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeStamp", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset TimeStamp
 		{
 			get
 			{

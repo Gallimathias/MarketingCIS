@@ -1,0 +1,11 @@
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\ImapTest\bin\Debug\ImapTest.exe.config
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\ImapTest\bin\Debug\ImapTest.exe
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\ImapTest\bin\Debug\ImapTest.pdb
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\ImapTest\bin\Debug\BouncyCastle.Crypto.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\ImapTest\bin\Debug\MailKit.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\ImapTest\bin\Debug\MimeKit.dll
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\ImapTest\bin\Debug\MailKit.xml
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\ImapTest\bin\Debug\MimeKit.xml
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\ImapTest\obj\Debug\ImapTest.csprojResolveAssemblyReference.cache
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\ImapTest\obj\Debug\ImapTest.exe
+D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\ImapTest\obj\Debug\ImapTest.pdb

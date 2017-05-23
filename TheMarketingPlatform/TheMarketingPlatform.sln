@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatform.Databa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatform.Mail", "TheMarketingPlatform.Mail\TheMarketingPlatform.Mail.csproj", "{5A7796E5-8003-4379-9EB0-E9F64F3644A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImapTest", "ImapTest\ImapTest.csproj", "{2E6F28A0-D1D3-4E86-9C41-B2F7157287AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{5A7796E5-8003-4379-9EB0-E9F64F3644A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A7796E5-8003-4379-9EB0-E9F64F3644A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A7796E5-8003-4379-9EB0-E9F64F3644A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E6F28A0-D1D3-4E86-9C41-B2F7157287AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E6F28A0-D1D3-4E86-9C41-B2F7157287AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E6F28A0-D1D3-4E86-9C41-B2F7157287AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E6F28A0-D1D3-4E86-9C41-B2F7157287AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

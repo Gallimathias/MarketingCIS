@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4295B16A-7C96-4FC7-9D76-7AC2A107F175}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>TheMarketingPlatform.Service</RootNamespace>
-    <AssemblyName>TheMarketingPlatform.Service</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <ProjectGuid>{2E6F28A0-D1D3-4E86-9C41-B2F7157287AD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ImapTest</RootNamespace>
+    <AssemblyName>ImapTest</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,54 +32,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MimeKit, Version=1.16.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814" />
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="MailKit, Version=1.16.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.1.16.1\lib\net451\MailKit.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeKit, Version=1.16.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.1.16.1\lib\net451\MimeKit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigType.cs" />
-    <Compile Include="LUISService.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="LUISService.Designer.cs">
-      <DependentUpon>LUISService.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MailService.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingsHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="LUISService.resx">
-      <DependentUpon>LUISService.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TheMarketingPlatform.Core\TheMarketingPlatform.Core.csproj">
-      <Project>{b2e5d50a-85e1-4c46-864c-066c65771d96}</Project>
-      <Name>TheMarketingPlatform.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TheMarketingPlatform.Database\TheMarketingPlatform.Database.csproj">
-      <Project>{19B71276-05A3-4765-9351-FCB1B3AA3A3E}</Project>
-      <Name>TheMarketingPlatform.Database</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TheMarketingPlatform.Mail\TheMarketingPlatform.Mail.csproj">
-      <Project>{5A7796E5-8003-4379-9EB0-E9F64F3644A5}</Project>
-      <Name>TheMarketingPlatform.Mail</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

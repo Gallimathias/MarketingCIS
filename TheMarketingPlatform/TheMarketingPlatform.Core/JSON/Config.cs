@@ -12,6 +12,7 @@ namespace TheMarketingPlatform.Core.JSON
         public string ProductName { get; set; }
         public string LuisAppId { get; set; }
         public string LuisAppKey { get; set; }
+        public string DatabaseConnectionString { get; set; }
         public int MailServicePeriod { get; set; }
 
 

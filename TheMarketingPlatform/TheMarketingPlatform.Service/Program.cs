@@ -14,11 +14,17 @@ namespace TheMarketingPlatform.Service
         /// </summary>
         static void Main()
         {
+            var settingsHandler = new SettingsHandler();
+
+            var mailService = new MailService(settingsHandler);
+            var lUISService = new LUISService();
+            mailService.OnNewMessages += (s,m) => lUISService.HandleMessages(m);
+
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new LUISService(),
-                new MailService()
+                lUISService,
+                mailService
             };
             ServiceBase.Run(ServicesToRun);
         }

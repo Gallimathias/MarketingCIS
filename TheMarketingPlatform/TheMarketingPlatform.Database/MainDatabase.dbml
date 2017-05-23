@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TheMarketingPlatform" Class="TheMarketingPlatformDatabaseDataContext" AccessModifier="Internal" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TheMarketingPlatform" Class="MainDatabaseContext" AccessModifier="Internal" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=HAL2015;Initial Catalog=TheMarketingPlatform;Integrated Security=True;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="TheMarketingPlatform.Database.Properties.Settings" SettingsPropertyName="TheMarketingPlatformConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.LuisEntity" Member="LuisEntity">
     <Type Name="LuisEntity">
@@ -38,7 +38,7 @@
       <Column Name="[From]" Member="From" Type="System.String" DbType="NVarChar(254) NOT NULL" CanBeNull="false" />
       <Column Name="Subject" Type="System.String" DbType="NVarChar(254)" CanBeNull="true" />
       <Column Name="Body" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Association Name="Mail_LuisResponse" Member="LuisResponse" ThisKey="Id" OtherKey="MailId" Type="LuisResponse" />
       <Association Name="Mail_MailAttachment" Member="MailAttachment" ThisKey="Id" OtherKey="MailId" Type="MailAttachment" />
       <Association Name="Mail_MailReceiver" Member="MailReceiver" ThisKey="Id" OtherKey="MailId" Type="MailReceiver" />

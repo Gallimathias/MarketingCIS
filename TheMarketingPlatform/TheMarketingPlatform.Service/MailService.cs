@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MimeKit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceProcess;
@@ -11,34 +12,35 @@ namespace TheMarketingPlatform.Service
 {
     internal class MailService : ServiceBase
     {
+        public delegate void MailEventHandler(object sender, params MimeMessage[] message);
+        public event MailEventHandler OnNewMessages;
+
         public SettingsHandler SettingsHandler { get; private set; }
 
         private Mail.MailService mailService;
-        private ManualResetEvent manualResetEvent;
         private Timer timer;
 
         public MailService(SettingsHandler settingsHandler)
         {
-            mailService = new Mail.MailService();
+            mailService = new Mail.MailService(SettingsHandler.DatabaseController.MailClientSettings);
             SettingsHandler = settingsHandler;
-            manualResetEvent = new ManualResetEvent(true);
         }
 
         protected override void OnStart(string[] args)
         {
-            timer = new Timer(Process, null, 0, (int)SettingsHandler["MailServicePeriod"]);
+            InitializeTimer();
             base.OnStart(args);
         }
 
         protected override void OnPause()
         {
-            manualResetEvent.Reset();
+            timer.Dispose();
             base.OnPause();
         }
 
         protected override void OnContinue()
         {
-            manualResetEvent.Set();
+            InitializeTimer();
             base.OnContinue();
         }
 
@@ -50,7 +52,12 @@ namespace TheMarketingPlatform.Service
 
         private void Process(object state)
         {
-            manualResetEvent.WaitOne();
+            var lastMessage = SettingsHandler.DatabaseController.GetLastMessage();
+            var messages = mailService.GetMails(lastMessage.TimeStamp);
+
+            OnNewMessages?.Invoke(this, messages.ToArray());
         }
+
+        private void InitializeTimer() => timer = new Timer(Process, null, 0, (int)SettingsHandler["MailServicePeriod"]);
     }
 }

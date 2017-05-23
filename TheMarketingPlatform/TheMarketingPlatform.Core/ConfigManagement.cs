@@ -14,7 +14,7 @@ namespace TheMarketingPlatform.Core
         private Config config;
         private FileInfo configFile;
 
-        public (bool, Exception) Load(string fullName)
+        public (bool loaded, Exception exception) Load(string fullName)
         {
             configFile = new FileInfo(fullName);
 
