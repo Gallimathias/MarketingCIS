@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatform.Core",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatform.Service", "TheMarketingPlatform.Service\TheMarketingPlatform.Service.csproj", "{4295B16A-7C96-4FC7-9D76-7AC2A107F175}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestService", "TestSerivce\TestService.csproj", "{35F05B41-8CC4-486C-A2AB-4E3A228FC835}"
-EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TheMarketingPlatform.databaseproject", "TheMarketingPlatform.databaseproject\TheMarketingPlatform.databaseproject.sqlproj", "{8F96231B-0E33-4275-921A-43074CF567E5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatform.Database", "TheMarketingPlatform.Database\TheMarketingPlatform.Database.csproj", "{19B71276-05A3-4765-9351-FCB1B3AA3A3E}"
@@ -27,10 +25,6 @@ Global
 		{4295B16A-7C96-4FC7-9D76-7AC2A107F175}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4295B16A-7C96-4FC7-9D76-7AC2A107F175}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4295B16A-7C96-4FC7-9D76-7AC2A107F175}.Release|Any CPU.Build.0 = Release|Any CPU
-		{35F05B41-8CC4-486C-A2AB-4E3A228FC835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35F05B41-8CC4-486C-A2AB-4E3A228FC835}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35F05B41-8CC4-486C-A2AB-4E3A228FC835}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35F05B41-8CC4-486C-A2AB-4E3A228FC835}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F96231B-0E33-4275-921A-43074CF567E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8F96231B-0E33-4275-921A-43074CF567E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F96231B-0E33-4275-921A-43074CF567E5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
