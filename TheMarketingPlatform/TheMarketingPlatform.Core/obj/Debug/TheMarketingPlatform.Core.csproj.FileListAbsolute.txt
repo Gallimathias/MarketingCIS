@@ -1,0 +1,12 @@
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\bin\Debug\TheMarketingPlatform.Core.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\bin\Debug\TheMarketingPlatform.Core.pdb
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\bin\Debug\MailKit.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\bin\Debug\MimeKit.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\bin\Debug\MailKit.xml
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\bin\Debug\MimeKit.xml
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\bin\Debug\Newtonsoft.Json.xml
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\obj\Debug\TheMarketingPlatform.Core.csprojResolveAssemblyReference.cache
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\obj\Debug\TheMarketingPlatform.Core.dll
+C:\Users\BID01023\Documents\Visual Studio 2017\Projects\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Core\obj\Debug\TheMarketingPlatform.Core.pdb
