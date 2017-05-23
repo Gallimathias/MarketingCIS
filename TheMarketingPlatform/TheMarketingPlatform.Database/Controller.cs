@@ -12,13 +12,14 @@ namespace TheMarketingPlatform.Database
 {
     public class Controller
     {
-        public List<IMailClientSettings> MailClientSettings { get; set; }
+        public List<IMailClientSettings> MailClientSettings { get; private set; }
 
         MainDatabaseContext databaseContext;
 
         public Controller(string connection)
         {
             databaseContext = new MainDatabaseContext(connection);
+            
         }
 
         public Mail GetLastMessage() =>
@@ -36,7 +37,7 @@ namespace TheMarketingPlatform.Database
             databaseContext.GetTable<Mail>().InsertOnSubmit(mail);
             databaseContext.SubmitChanges();
 
-            var mailAddresses = new List<MailAddresses>();
+            var mailAddresses = new List<MailAddress>();
             var dictonary = new Dictionary<AddressType, InternetAddressList>
             {
                 { AddressType.From, mimeMessage.From },
@@ -49,16 +50,16 @@ namespace TheMarketingPlatform.Database
             {
                 foreach (var adress in type.Value)
                 {
-                    mailAddresses.Add(new MailAddresses()
+                    mailAddresses.Add(new MailAddress()
                     {
-                        MailAddress = adress.Name,
+                        Adress = adress.Name,
                         MailId = mail.Id,
                         Type = new[] { (byte)type.Key }
                     });
                 }
             }
 
-            databaseContext.GetTable<MailAddresses>().InsertAllOnSubmit(mailAddresses);
+            databaseContext.GetTable<MailAddress>().InsertAllOnSubmit(mailAddresses);
             databaseContext.SubmitChanges();
 
             return mail.Id;
@@ -107,6 +108,22 @@ namespace TheMarketingPlatform.Database
             databaseContext.SubmitChanges();
 
             return luisResponse.Id;
+        }
+
+        private void GetMailSettings()
+        {
+            foreach (var setting in databaseContext.GetTable<MailAccount>())
+            {
+                MailClientSettings.Add(new ClientSetting()
+                {
+                    Host = setting.Host,
+                    Password = setting.Password,
+                    Port = setting.Port,
+                    Type = (MailClientType)setting.Type.ToArray()[0],
+                    UserName = setting.Username,
+                    UseSsl = setting.UseSsl
+                });
+            }
         }
     }
 }

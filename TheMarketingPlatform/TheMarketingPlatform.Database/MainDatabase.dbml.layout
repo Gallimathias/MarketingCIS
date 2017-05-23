@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.5" name="TheMarketingPlatformDatabase">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 11" name="TheMarketingPlatformDatabase">
   <DataContextMoniker Name="/MainDatabaseContext" />
   <nestedChildShapes>
     <classShape Id="ff013528-9282-450b-ba01-6574e9e24ac5" absoluteBounds="6.25, 5.75, 2, 2.1554996744791666">
@@ -8,10 +8,10 @@
         <elementListCompartment Id="08934e08-2b65-4d16-ba11-57c7b56e7bf7" absoluteBounds="6.265, 6.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="1a9659ec-8154-4b55-9c60-44b7ba78db67" absoluteBounds="6.25, 3.25, 2, 1.7708968098958327">
+    <classShape Id="1a9659ec-8154-4b55-9c60-44b7ba78db67" absoluteBounds="7, 2.375, 2, 1.7708968098958327">
       <DataClassMoniker Name="/MainDatabaseContext/LuisIntent" />
       <nestedChildShapes>
-        <elementListCompartment Id="e274eed5-081f-48ef-8015-171196136d8e" absoluteBounds="6.265, 3.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="e274eed5-081f-48ef-8015-171196136d8e" absoluteBounds="7.015, 2.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="bf878b5b-e747-4b24-a819-643448c22819" absoluteBounds="3.5, 4.875, 2, 1.3862939453125005">
@@ -39,14 +39,14 @@
         <classShapeMoniker Id="ff013528-9282-450b-ba01-6574e9e24ac5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.28125 : 4.875); (4.28125 : 4.34939647265625); (6.25 : 4.34939647265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.09375 : 4.875); (5.09375 : 3.73484537760417); (7 : 3.73484537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/MainDatabaseContext/LuisResponse/LuisResponse_LuisIntent" />
       <nodes>
         <classShapeMoniker Id="bf878b5b-e747-4b24-a819-643448c22819" />
         <classShapeMoniker Id="1a9659ec-8154-4b55-9c60-44b7ba78db67" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.63064697265625); (3.5 : 5.63064697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 5.7300439453125); (3.5 : 5.7300439453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MainDatabaseContext/Mail/Mail_LuisResponse" />
       <nodes>
         <classShapeMoniker Id="299f8aa7-492a-4f59-bd41-23a8689b8f74" />
@@ -60,17 +60,23 @@
         <classShapeMoniker Id="3267ced5-66a8-4c8f-b889-e1b1611d11dd" />
       </nodes>
     </associationConnector>
-    <classShape Id="07c13898-cabe-4028-a0ec-cf7330fd6aa4" absoluteBounds="3.5, 1.5, 2, 1.3862939453125">
-      <DataClassMoniker Name="/MainDatabaseContext/MailAddresses" />
+    <classShape Id="b76847df-f13e-4a4f-9f74-0602ab17d58d" absoluteBounds="6.375, 8.75, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/MainDatabaseContext/MailAccount" />
       <nestedChildShapes>
-        <elementListCompartment Id="7b0d8a4d-8928-436c-b802-4d313dd597cc" absoluteBounds="3.5149999999999997, 1.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="01319d66-6d18-4d4e-9358-81968c0fe863" absoluteBounds="6.39, 9.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.75 : 5); (1.75 : 2.19314697265625); (3.5 : 2.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/MainDatabaseContext/Mail/Mail_MailAddresses" />
+    <classShape Id="09fe5b00-c12c-48b5-957c-27f251a147a6" absoluteBounds="2.625, 1.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/MainDatabaseContext/MailAddress" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a46ed5e-fc01-476e-b3a2-ee4432a265bb" absoluteBounds="2.64, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.6874995 : 5); (1.6874995 : 2.56814697265625); (2.625 : 2.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MainDatabaseContext/Mail/Mail_MailAddress" />
       <nodes>
         <classShapeMoniker Id="299f8aa7-492a-4f59-bd41-23a8689b8f74" />
-        <classShapeMoniker Id="07c13898-cabe-4028-a0ec-cf7330fd6aa4" />
+        <classShapeMoniker Id="09fe5b00-c12c-48b5-957c-27f251a147a6" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

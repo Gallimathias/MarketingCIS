@@ -60,11 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Mail.sql" />
-    <Build Include="MailAddresses.sql" />
+    <Build Include="MailAddress.sql" />
     <Build Include="MailAttachment.sql" />
     <Build Include="LuisResponse.sql" />
     <Build Include="LuisIntent.sql" />
     <Build Include="LuisEntity.sql" />
+    <Build Include="MailAccount.sql" />
+    <Build Include="MailAccountFolder.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="TheMarketingPlatform.databaseproject.refactorlog" />

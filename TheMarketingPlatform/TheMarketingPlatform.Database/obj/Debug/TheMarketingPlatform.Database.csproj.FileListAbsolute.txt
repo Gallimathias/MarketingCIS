@@ -10,7 +10,6 @@ D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPl
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Database\bin\Debug\BouncyCastle.Crypto.dll
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Database\bin\Debug\TheMarketingPlatform.Core.pdb
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Database\bin\Debug\TheMarketingPlatform.Mail.pdb
-D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Database\bin\Debug\MimeKit.xml
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Database\bin\Debug\Newtonsoft.Json.xml
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Database\bin\Debug\MailKit.xml
 D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatform.Database\obj\Debug\TheMarketingPlatform.Database.dll
