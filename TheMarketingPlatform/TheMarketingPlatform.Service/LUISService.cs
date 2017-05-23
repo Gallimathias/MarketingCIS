@@ -6,7 +6,7 @@ using TheMarketingPlatform.Core.CognitiveServices;
 
 namespace TheMarketingPlatform.Service
 {
-    public partial class LUISService : ServiceBase
+    internal partial class LUISService : ServiceBase
     {
         private Task task;
         private CancellationTokenSource cancelTokenSource;

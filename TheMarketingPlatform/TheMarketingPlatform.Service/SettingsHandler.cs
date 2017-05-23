@@ -13,5 +13,10 @@ namespace TheMarketingPlatform.Service
         {
             Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Gallimathias\TheMarketingPlatform\Main", "", null);
         }
+
+        internal int GetValue(string key)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

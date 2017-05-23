@@ -51,6 +51,9 @@
     <Compile Include="LUISService.Designer.cs">
       <DependentUpon>LUISService.cs</DependentUpon>
     </Compile>
+    <Compile Include="MailService.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsHandler.cs" />
@@ -67,6 +70,10 @@
     <ProjectReference Include="..\TheMarketingPlatform.Core\TheMarketingPlatform.Core.csproj">
       <Project>{b2e5d50a-85e1-4c46-864c-066c65771d96}</Project>
       <Name>TheMarketingPlatform.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheMarketingPlatform.Mail\TheMarketingPlatform.Mail.csproj">
+      <Project>{5A7796E5-8003-4379-9EB0-E9F64F3644A5}</Project>
+      <Name>TheMarketingPlatform.Mail</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

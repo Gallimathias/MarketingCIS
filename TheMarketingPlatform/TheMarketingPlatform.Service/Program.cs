@@ -17,7 +17,8 @@ namespace TheMarketingPlatform.Service
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new LUISService()
+                new LUISService(),
+                new MailService()
             };
             ServiceBase.Run(ServicesToRun);
         }
