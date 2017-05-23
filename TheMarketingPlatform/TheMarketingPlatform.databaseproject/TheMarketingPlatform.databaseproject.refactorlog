@@ -77,4 +77,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="LuisResponseId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="f83a1c36-63f0-43d8-8a96-ee246122d01c" ChangeDateTime="05/23/2017 10:56:24">
+    <Property Name="ElementName" Value="[dbo].[FK_MailAttachments_Mail]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAttachments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_MailAttachment_Mail]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="05e21239-620e-4aed-b49b-651a15e072e5" ChangeDateTime="05/23/2017 10:56:27">
+    <Property Name="ElementName" Value="[dbo].[PK_MailAttachments]" />
+    <Property Name="ElementType" Value="SqlPrimaryKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAttachments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[PK_MailAttachment]" />
+  </Operation>
 </Operations>

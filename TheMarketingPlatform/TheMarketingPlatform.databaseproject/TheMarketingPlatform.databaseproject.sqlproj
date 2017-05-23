@@ -61,7 +61,7 @@
   <ItemGroup>
     <Build Include="Mail.sql" />
     <Build Include="MailReceiver.sql" />
-    <Build Include="MailAttachments.sql" />
+    <Build Include="MailAttachment.sql" />
     <Build Include="LuisResponse.sql" />
     <Build Include="LuisIntent.sql" />
     <Build Include="LuisEntity.sql" />
