@@ -19,13 +19,7 @@ namespace TheMarketingPlatform.Service
             var mailService = new MailService(settingsHandler);
             var lUISService = new LUISService(settingsHandler);
             mailService.OnNewMessages += (s,m) => lUISService.HandleMessages(m);
-
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
-            {
-                mailService
-            };
-            ServiceBase.Run(ServicesToRun);
+            
         }
     }
 }

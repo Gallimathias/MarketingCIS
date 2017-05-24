@@ -1,9 +1,0 @@
-D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatfrom.CognitiveServices\bin\Debug\TheMarketingPlatfrom.CognitiveServices.dll
-D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatfrom.CognitiveServices\bin\Debug\TheMarketingPlatfrom.CognitiveServices.pdb
-D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatfrom.CognitiveServices\bin\Debug\TheMarketingPlatform.Core.dll
-D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatfrom.CognitiveServices\bin\Debug\Newtonsoft.Json.dll
-D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatfrom.CognitiveServices\bin\Debug\TheMarketingPlatform.Core.pdb
-D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatfrom.CognitiveServices\bin\Debug\Newtonsoft.Json.xml
-D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatfrom.CognitiveServices\obj\Debug\TheMarketingPlatfrom.CognitiveServices.csprojResolveAssemblyReference.cache
-D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatfrom.CognitiveServices\obj\Debug\TheMarketingPlatfrom.CognitiveServices.dll
-D:\Projekte\Visual 2017\TheMarketingPlatform\TheMarketingPlatform\TheMarketingPlatfrom.CognitiveServices\obj\Debug\TheMarketingPlatfrom.CognitiveServices.pdb

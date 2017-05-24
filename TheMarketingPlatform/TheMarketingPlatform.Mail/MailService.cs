@@ -20,6 +20,7 @@ namespace TheMarketingPlatform.Mail
         public MailService()
         {
             imapClients = new Dictionary<ImapClient, ImapClientSetting>();
+            subscribedFolders = new List<IMailFolder>();
         }
         public MailService(List<IMailClientSettings> settings)
         {

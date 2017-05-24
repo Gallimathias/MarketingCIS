@@ -112,4 +112,60 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[FK_MailAddresses_Mail]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="3f19fdf6-ba07-41d4-9a18-807387af91dc" ChangeDateTime="05/23/2017 19:19:47">
+    <Property Name="ElementName" Value="[dbo].[PK_MailAddresses]" />
+    <Property Name="ElementType" Value="SqlPrimaryKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAddress&#xD;&#xA;]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[PK_MailAddress]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2cf83723-de3d-416f-8c2f-243213e50553" ChangeDateTime="05/23/2017 19:19:53">
+    <Property Name="ElementName" Value="[dbo].[FK_MailAddresses_Mail]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAddress&#xD;&#xA;]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_MailAddress_Mail]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d3a9b2fd-7614-45c8-81f6-37339f5979d7" ChangeDateTime="05/23/2017 19:22:41">
+    <Property Name="ElementName" Value="[dbo].[MailAccount].[host]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Host" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="095ee2d7-8c38-43fd-a3fe-790752fe181f" ChangeDateTime="05/23/2017 19:22:45">
+    <Property Name="ElementName" Value="[dbo].[MailAccount].[port]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Port" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5902e9b9-871c-4cba-9535-181f7d97124f" ChangeDateTime="05/23/2017 19:22:49">
+    <Property Name="ElementName" Value="[dbo].[MailAccount].[username]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Username" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9e1625e1-652b-4063-aa6b-71791a21a437" ChangeDateTime="05/23/2017 19:22:52">
+    <Property Name="ElementName" Value="[dbo].[MailAccount].[password]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Password" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="83465131-7c2a-4b24-a180-7dd64a3535ad" ChangeDateTime="05/23/2017 19:26:09">
+    <Property Name="ElementName" Value="[dbo].[MailAddress].[MailAddress]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAddress]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Mail" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="09602194-a8b5-4654-8e3e-8c44835de8eb" ChangeDateTime="05/23/2017 19:27:39">
+    <Property Name="ElementName" Value="[dbo].[MailAddress].[Mail]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAddress]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Adress" />
+  </Operation>
 </Operations>

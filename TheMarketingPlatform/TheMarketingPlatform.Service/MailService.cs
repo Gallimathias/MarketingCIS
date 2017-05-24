@@ -10,7 +10,7 @@ using Mail = TheMarketingPlatform.Mail;
 
 namespace TheMarketingPlatform.Service
 {
-    internal class MailService : ServiceBase
+    internal class MailService
     {
         public delegate void MailEventHandler(object sender, params MimeMessage[] message);
         public event MailEventHandler OnNewMessages;
@@ -25,31 +25,6 @@ namespace TheMarketingPlatform.Service
             mailService = new Mail.MailService(SettingsHandler.DatabaseController.MailClientSettings);
             SettingsHandler = settingsHandler;
         }
-
-        protected override void OnStart(string[] args)
-        {
-            InitializeTimer();
-            base.OnStart(args);
-        }
-
-        protected override void OnPause()
-        {
-            timer.Dispose();
-            base.OnPause();
-        }
-
-        protected override void OnContinue()
-        {
-            InitializeTimer();
-            base.OnContinue();
-        }
-
-        protected override void OnStop()
-        {
-            timer.Dispose();
-            base.OnStop();
-        }
-
         private void Process(object state)
         {
             var lastMessage = SettingsHandler.DatabaseController.GetLastMessage();
