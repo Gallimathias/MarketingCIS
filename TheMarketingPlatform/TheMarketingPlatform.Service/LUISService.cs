@@ -20,6 +20,10 @@ namespace TheMarketingPlatform.Service
         public LUISService(SettingsHandler settingsHandler)
         {
             SettingsHandler = settingsHandler;
+            messageQueue = new ConcurrentQueue<MimeMessage>();
+            luisClient = new LUISClient(
+                (string)settingsHandler["LUISAppId"],
+                (string)settingsHandler["LUISAppKey"]);
         }
         
         private void StartProcess()

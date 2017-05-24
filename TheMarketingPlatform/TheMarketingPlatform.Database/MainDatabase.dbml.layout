@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 11.5" name="TheMarketingPlatformDatabase">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 11.25" name="TheMarketingPlatformDatabase">
   <DataContextMoniker Name="/MainDatabaseContext" />
   <nestedChildShapes>
     <classShape Id="ff013528-9282-450b-ba01-6574e9e24ac5" absoluteBounds="6.25, 5.75, 2, 2.1554996744791666">
@@ -73,10 +73,10 @@
         <classShapeMoniker Id="09fe5b00-c12c-48b5-957c-27f251a147a6" />
       </nodes>
     </associationConnector>
-    <classShape Id="4995d0a3-60f3-418e-bed5-13b427b6a173" absoluteBounds="7.375, 9.125, 2, 2.1554996744791666">
+    <classShape Id="5c6b6b7c-6b99-458a-8925-3c3567ca3fb5" absoluteBounds="7.125, 8.875, 2, 2.1554996744791666">
       <DataClassMoniker Name="/MainDatabaseContext/MailAccount" />
       <nestedChildShapes>
-        <elementListCompartment Id="b5fd3652-8dcb-49cf-a05a-597fd91e7741" absoluteBounds="7.39, 9.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="e314cbac-db55-4cef-8029-a4c00bf0d481" absoluteBounds="7.1400000000000006, 9.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

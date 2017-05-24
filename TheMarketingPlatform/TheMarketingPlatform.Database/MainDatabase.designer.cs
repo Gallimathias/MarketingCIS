@@ -1351,7 +1351,7 @@ namespace TheMarketingPlatform.Database
 		
 		private string _Username;
 		
-		private System.Data.Linq.Binary _Password;
+		private string _Password;
 		
 		private bool _UseSsl;
 		
@@ -1369,7 +1369,7 @@ namespace TheMarketingPlatform.Database
     partial void OnHostChanged();
     partial void OnUsernameChanging(string value);
     partial void OnUsernameChanged();
-    partial void OnPasswordChanging(System.Data.Linq.Binary value);
+    partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
     partial void OnUseSslChanging(bool value);
     partial void OnUseSslChanged();
@@ -1462,8 +1462,8 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarBinary(255) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Password
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Password
 		{
 			get
 			{

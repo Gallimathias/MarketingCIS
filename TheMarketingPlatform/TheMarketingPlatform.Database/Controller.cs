@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheMarketingPlatform.Core.JSON;
+using TheMarketingPlatform.Core.Secure;
 using TheMarketingPlatform.Mail;
 
 namespace TheMarketingPlatform.Database
@@ -117,11 +118,12 @@ namespace TheMarketingPlatform.Database
                 MailClientSettings.Add(new ClientSetting()
                 {
                     Host = setting.Host,
-                    //Password = setting.Password,
+                    Password = setting.Password,
                     Port = setting.Port,
                     Type = (MailClientType)setting.Type.ToArray()[0],
                     UserName = setting.Username,
                     UseSsl = setting.UseSsl
+                    
                 });
             }
         }
