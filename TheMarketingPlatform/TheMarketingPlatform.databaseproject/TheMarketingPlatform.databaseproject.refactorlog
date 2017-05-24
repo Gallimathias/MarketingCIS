@@ -168,4 +168,32 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Adress" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="7587f030-c210-44a9-bd37-7aff688f1fee" ChangeDateTime="05/24/2017 20:03:50">
+    <Property Name="ElementName" Value="[dbo].[MailAccountFolder].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAccountFolder]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Folder" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e8c76487-c9cf-4a89-a3a8-956413f282a1" ChangeDateTime="05/24/2017 20:05:28">
+    <Property Name="ElementName" Value="[dbo].[MailAccountFolder].[Folder]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAccountFolder]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FolderName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="eae4a052-190d-494e-929c-c23e16460762" ChangeDateTime="05/24/2017 20:07:00">
+    <Property Name="ElementName" Value="[dbo].[MailAccountFolder].[FolderName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAccountFolder]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FolderID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3b0366f2-500b-484a-a12a-1f6406eaacb3" ChangeDateTime="05/24/2017 20:07:02">
+    <Property Name="ElementName" Value="[dbo].[MailAccountFolder].[FolderID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MailAccountFolder]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Id" />
+  </Operation>
 </Operations>

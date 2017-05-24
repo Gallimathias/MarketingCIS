@@ -11,6 +11,11 @@ namespace TheMarketingPlatform.Core.JSON
         public Dictionary<string, object> Settings { get; set; }
 
 
+        public Config()
+        {
+            Settings = new Dictionary<string, object>();
+        }
+
         internal IEnumerable<KeyValuePair<string, object>> ToList()
         {
             var tmpList = new List<KeyValuePair<string, object>>();
