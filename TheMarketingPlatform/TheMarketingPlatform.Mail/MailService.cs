@@ -22,23 +22,28 @@ namespace TheMarketingPlatform.Mail
             imapClients = new Dictionary<ImapClient, ImapClientSetting>();
             subscribedFolders = new List<IMailFolder>();
         }
-        public MailService(List<IMailClientSettings> settings)
+        public MailService(List<IMailClientSettings> settings) : this()
         {
             Initialize(settings);
+            Subscribe();
         }
 
         public void Subscribe()
         {
             foreach (var imapClient in imapClients)
             {
-                var subscribedFolders = imapClient.Value.Folder;
-                if (subscribedFolders == null || subscribedFolders.Length < 1)
-                    subscribedFolders = new[] { imapClient.Key.Inbox };
+                var settingFolder = imapClient.Value.Folder ?? new List<string>();
+                if (settingFolder == null || settingFolder.Count < 1)
+                    settingFolder.Add(imapClient.Key.Inbox.Name);
 
-                foreach (var folder in subscribedFolders)
+                
+
+                foreach (var folderName in settingFolder)
                 {
-                    folder.CountChanged += (s, e) => FolderCountChanged?.Invoke((IMailFolder)s);
-                    folder.Open(FolderAccess.ReadOnly);
+                    var subFolder = imapClient.Key.GetFolder(folderName);
+                    subFolder.CountChanged += (s, e) => FolderCountChanged?.Invoke((IMailFolder)s);
+                    subFolder.Open(FolderAccess.ReadOnly);
+                    subscribedFolders.Add(subFolder);
                 }
             }
         }
@@ -55,8 +60,8 @@ namespace TheMarketingPlatform.Mail
             }
             return tmpList;
         }
-        public List<MimeMessage> GetMails(DateTimeOffset lastMessageDate) => 
-            (List<MimeMessage>)GetMails().Where(m => m.Date > lastMessageDate);
+        public List<MimeMessage> GetMails(DateTimeOffset lastMessageDate) =>
+            GetMails().Where(m => m.Date > lastMessageDate).ToList();
 
         public void Initialize(List<IMailClientSettings> settings)
         {

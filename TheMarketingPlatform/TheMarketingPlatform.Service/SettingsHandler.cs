@@ -16,7 +16,7 @@ namespace TheMarketingPlatform.Service
         public SettingsHandler()
         {
             var path = Registry.GetValue(
-                @"HKEY_LOCAL_MACHINE\SOFTWARE\Gallimathias\TheMarketingPlatform\Main", "Config", null)
+                $@"HKEY_LOCAL_MACHINE\SOFTWARE\Gallimathias\TheMarketingPlatform\Service", "Config", null)
                 as string;
             
             if (string.IsNullOrEmpty(path))

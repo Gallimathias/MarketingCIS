@@ -36,8 +36,8 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="Command Management System, Version=1.0.6215.29417, Culture=neutral, PublicKeyToken=304a821013b0b687, processorArchitecture=MSIL">
-      <HintPath>..\packages\CommandManagementSystem.1.0.1\lib\net461\Command Management System.dll</HintPath>
+    <Reference Include="Command Management System, Version=2.0.6353.31217, Culture=neutral, PublicKeyToken=304a821013b0b687, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommandManagementSystem.2.0.0-alpha1\lib\net47\Command Management System.dll</HintPath>
     </Reference>
     <Reference Include="MailKit, Version=1.16.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
       <HintPath>..\packages\MailKit.1.16.1\lib\net451\MailKit.dll</HintPath>
@@ -61,6 +61,7 @@
     <Compile Include="ConfigType.cs" />
     <Compile Include="LUISService.cs" />
     <Compile Include="MailService.cs" />
+    <Compile Include="ServiceCommandManager.cs" />
     <Compile Include="TcpServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +88,9 @@
       <Project>{ea8df9fb-70fb-4d45-8c43-34666b121865}</Project>
       <Name>TheMarketingPlatfrom.CognitiveServices</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

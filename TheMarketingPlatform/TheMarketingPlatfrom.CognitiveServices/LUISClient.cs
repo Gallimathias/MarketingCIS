@@ -20,8 +20,8 @@ namespace TheMarketingPlatform.CognitiveServices
 
         public Response Reply(string message)
         {
-            var request = WebRequest.Create(
-                $"{BaseURL}/{AppID}?subscription-key={key}&staging={staging}&verbose={verbose}&timezoneOffset={dateTimeOffset.ToString("H.m")}&q={message}");
+            var request = WebRequest.Create(new Uri(
+                $"https://{BaseURL}/{AppID}?subscription-key={key}&staging={staging}&verbose={verbose}&timezoneOffset={dateTimeOffset.ToString("H.m")}&q={message}"));
 
             using (var reader = new StreamReader(request.GetResponse().GetResponseStream()))
             {

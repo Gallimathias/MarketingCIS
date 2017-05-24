@@ -9,6 +9,7 @@ using TheMarketingPlatform.Core.JSON;
 using TheMarketingPlatform.Core.Secure;
 using TheMarketingPlatform.Mail;
 
+
 namespace TheMarketingPlatform.Database
 {
     public class Controller
@@ -20,7 +21,8 @@ namespace TheMarketingPlatform.Database
         public Controller(string connection)
         {
             databaseContext = new MainDatabaseContext(connection);
-
+            MailClientSettings = new List<IMailClientSettings>();
+            GetMailSettings();
         }
 
         public Mail GetLastMessage() =>
@@ -49,11 +51,11 @@ namespace TheMarketingPlatform.Database
 
             foreach (var type in dictonary)
             {
-                foreach (var adress in type.Value)
+                foreach (MailboxAddress adress in type.Value)
                 {
                     mailAddresses.Add(new MailAddress()
                     {
-                        Adress = adress.Name,
+                        Adress = adress.Address,
                         MailId = mail.Id,
                         Type = new[] { (byte)type.Key }
                     });
@@ -113,19 +115,30 @@ namespace TheMarketingPlatform.Database
 
         private void GetMailSettings()
         {
-            foreach (var setting in databaseContext.GetTable<MailAccount>())
+            foreach (var setting in databaseContext.GetTable<MailAccount>().Where(
+                s => s.Type == new byte[] { (byte)MailClientType.Imap}))
             {
-                MailClientSettings.Add(new ClientSetting()
+                MailClientSettings.Add(new ImapClientSetting()
                 {
                     Host = setting.Host,
                     Password = setting.Password,
                     Port = setting.Port,
-                    Type = (MailClientType)setting.Type.ToArray()[0],
                     UserName = setting.Username,
-                    UseSsl = setting.UseSsl
+                    UseSsl = setting.UseSsl,
+                    Folder = GetFolder(setting.MailAccountFolder.ToList())
                     
                 });
             }
+        }
+
+        private List<string> GetFolder(List<MailAccountFolder> list)
+        {
+            var tmp = new List<string>();
+
+            foreach (var folder in list)
+                tmp.Add(folder.Folder);
+
+            return tmp;
         }
     }
 }

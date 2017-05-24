@@ -1,0 +1,10 @@
+D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\bin\Debug\TestInstaller.exe.config
+D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\bin\Debug\TestInstaller.exe
+D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\bin\Debug\TestInstaller.pdb
+D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\bin\Debug\Newtonsoft.Json.dll
+D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\bin\Debug\TheMarketingPlatform.Core.dll
+D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\bin\Debug\TheMarketingPlatform.Core.pdb
+D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\bin\Debug\Newtonsoft.Json.xml
+D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\obj\Debug\TestInstaller.csprojResolveAssemblyReference.cache
+D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\obj\Debug\TestInstaller.exe
+D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\obj\Debug\TestInstaller.pdb

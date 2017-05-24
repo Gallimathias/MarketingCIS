@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Text;
 using MailKit.Security;
+using System.Collections.Generic;
 
 namespace TheMarketingPlatform.Mail
 {
@@ -12,5 +13,6 @@ namespace TheMarketingPlatform.Mail
         string Host { get; }
         string Password { get; }
         string UserName { get; }
+        List<string> Folder { get; }
     }
 }
