@@ -2,11 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceProcess;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Mail = TheMarketingPlatform.Mail;
 
 namespace TheMarketingPlatform.Service
 {
@@ -25,6 +23,12 @@ namespace TheMarketingPlatform.Service
             mailService = new Mail.MailService(SettingsHandler.DatabaseController.MailClientSettings);
             SettingsHandler = settingsHandler;
         }
+
+        internal void Start()
+        {
+            timer = new Timer(Process, null, 0, (int)SettingsHandler["MailServiceHandlerPeriod"]);
+        }
+
         private void Process(object state)
         {
             var lastMessage = SettingsHandler.DatabaseController.GetLastMessage();
