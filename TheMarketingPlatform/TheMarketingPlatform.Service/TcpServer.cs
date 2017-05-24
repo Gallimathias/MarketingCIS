@@ -54,7 +54,7 @@ namespace TheMarketingPlatform.Service
             while (Connections.ContainsKey(id))
                 id = random.Next();
 
-            if(!Connections.TryAdd(id, client))
+            if (!Connections.TryAdd(id, client))
             {
                 client.Send(NetworkMessage.DefaultError);
                 client.Disconnect();
@@ -67,11 +67,8 @@ namespace TheMarketingPlatform.Service
             ClientReady?.Invoke(client);
         }
 
-        private void Client_OnDisconnect(TcpConnection tcpConnection)
-        {
-            throw new NotImplementedException();
-        }
-
+        private void Client_OnDisconnect(TcpConnection tcpConnection) => Connections.TryRemove(tcpConnection.Id, out tcpConnection);
+        
         private void Client_OnMessageRecived(TcpConnection tcpConnection, NetworkMessage networkMessage)
         {
             throw new NotImplementedException();
