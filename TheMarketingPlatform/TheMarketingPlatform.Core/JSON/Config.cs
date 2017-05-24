@@ -8,21 +8,16 @@ namespace TheMarketingPlatform.Core.JSON
 {
     public class Config
     {
-        public string Version { get; set; }
-        public string ProductName { get; set; }
-        public string LuisAppId { get; set; }
-        public string LuisAppKey { get; set; }
-        public string DatabaseConnectionString { get; set; }
-        public int MailServicePeriod { get; set; }
+        public Dictionary<string, object> Settings { get; set; }
 
 
         internal IEnumerable<KeyValuePair<string, object>> ToList()
         {
             var tmpList = new List<KeyValuePair<string, object>>();
 
-            foreach (var propertie in GetType().GetProperties())
+            foreach (var setting in Settings)
                 tmpList.Add(
-                    new KeyValuePair<string, object>(propertie.Name, propertie.GetValue(this)));
+                    new KeyValuePair<string, object>(setting.Key, setting.Value));
 
             return tmpList;
         }
