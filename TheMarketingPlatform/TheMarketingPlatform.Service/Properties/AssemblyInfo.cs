@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("MarketingCIS.Serivce")]
+[assembly: AssemblyTitle("TheMarketingPlatform.Service")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Konica Minolta IT Solutions GmbH")]
-[assembly: AssemblyProduct("MarketingCIS.Serivce")]
+[assembly: AssemblyProduct("TheMarketingPlatform.Service")]
 [assembly: AssemblyCopyright("Copyright © Konica Minolta IT Solutions GmbH 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

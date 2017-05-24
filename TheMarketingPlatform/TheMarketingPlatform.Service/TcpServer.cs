@@ -46,10 +46,15 @@ namespace TheMarketingPlatform.Service
             BeginAcceptTcpClient(HandShake, null);
             var client = new TcpConnection(EndAcceptTcpClient(ar));
             ClientConnect?.Invoke(client);
-            var message = client.ReciveMessage();
+            if (client.ReciveMessage().IsEmpty)
+                return;
+
             client.Send(NetworkMessage.DefaultOk);
 
             DiffieHellman(client);
+
+            if (client.ReciveMessage().IsEmpty)
+                return;
 
             var random = new Random();
             var id = random.Next();
@@ -64,9 +69,12 @@ namespace TheMarketingPlatform.Service
             }
 
             client.Id = id;
+
+            client.Send(NetworkMessage.DefaultOk);
+
             client.OnMessageRecived += Client_OnMessageRecived;
             client.OnDisconnect += Client_OnDisconnect;
-            client.ReciveMessage();
+            client.BeginRecive();
             ClientReady?.Invoke(client);
         }
 
@@ -88,7 +96,7 @@ namespace TheMarketingPlatform.Service
 
                 client.Send(new NetworkMessage(null, ecd.PublicKey.ToByteArray()));
                 client.Key = ecd.DeriveKeyMaterial(CngKey.Import(publicKey, CngKeyBlobFormat.EccPublicBlob));
-            }
+            }            
         }
     }
 }

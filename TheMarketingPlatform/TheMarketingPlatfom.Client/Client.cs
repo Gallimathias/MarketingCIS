@@ -17,7 +17,9 @@ namespace TheMarketingPlatfom.Client
         public void Connect()
         {
             Send(NetworkMessage.DefaultOk);
-            ReciveMessage();
+
+            if (ReciveMessage().IsEmpty)
+                return;
 
             using (var ecd = new ECDiffieHellmanCng() {
                 KeyDerivationFunction = ECDiffieHellmanKeyDerivationFunction.Hash,
@@ -29,6 +31,13 @@ namespace TheMarketingPlatfom.Client
 
                 Key = ecd.DeriveKeyMaterial(CngKey.Import(publicKey, CngKeyBlobFormat.EccPublicBlob));
             }
+
+            Send(NetworkMessage.DefaultOk);
+
+            if (ReciveMessage().IsEmpty)
+                return;
+            
+            BeginRecive();
 
         }
     }

@@ -40,7 +40,7 @@ namespace TheMarketingPlatform.Core.Network
             this.tcpClient = tcpClient;
             if (tcpClient.Connected)
                 OnConnect?.Invoke(this);
-
+            
             tokenSource = new CancellationTokenSource();
         }
         public TcpConnection(string host, int port) : this(new TcpClient(host, port)) { }

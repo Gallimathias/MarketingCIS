@@ -36,7 +36,7 @@ namespace TheMarketingPlatform.Service
                 SettingsHandler = settingsHandler,
                 CommandManager = commandManager
             };
-
+            tcpServer.Start();
             mailService.OnNewMessages += (s, m) => lUISService.HandleMessages(m);
             mailService.Start();
 

@@ -24,6 +24,7 @@ namespace TheMarketingPlatform
     public partial class TrayIcon : Window
     {
         private NotifyIcon notifyIcon;
+        private SettingsHandler settingsHandler;
         private Client client;
 
         public TrayIcon()
@@ -41,12 +42,17 @@ namespace TheMarketingPlatform
             var closeItem = new System.Windows.Forms.MenuItem("Close");
             closeItem.Click += (s, e) => Close();
             notifyIcon.ContextMenu.MenuItems.Add(closeItem);
+
+            settingsHandler = new SettingsHandler();
+            InitializeClient();
                         
         }
 
         private void InitializeClient()
         {
-            //client = new Client("localhost", 170);
+            client = new Client((string)settingsHandler["Host"], (int)(long)settingsHandler["Port"]);
+            client.Connect();
+            client.Send(new Core.Network.NetworkMessage("test", new byte[0]));
         }
     }
 }

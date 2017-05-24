@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\TestCommand.cs" />
     <Compile Include="ConfigType.cs" />
     <Compile Include="LUISService.cs" />
     <Compile Include="MailService.cs" />
@@ -89,8 +90,6 @@
       <Name>TheMarketingPlatfrom.CognitiveServices</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

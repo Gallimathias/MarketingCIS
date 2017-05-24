@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TheMarketingPlatform.Core\TheMarketingPlatform.Core.csproj">
