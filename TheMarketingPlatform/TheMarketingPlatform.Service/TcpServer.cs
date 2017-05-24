@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using CommandManagementSystem;
 using TheMarketingPlatform.Core.Network;
 
 namespace TheMarketingPlatform.Service
@@ -14,6 +15,8 @@ namespace TheMarketingPlatform.Service
     internal class TcpServer : TcpListener
     {
         public ConcurrentDictionary<int, TcpConnection> Connections { get; private set; }
+        public SettingsHandler SettingsHandler { get; internal set; }
+        public ServiceCommandManager CommandManager { get; internal set; }
 
         public delegate void ServerEventHandler(TcpConnection client);
         public event ServerEventHandler ClientConnect;
@@ -67,12 +70,11 @@ namespace TheMarketingPlatform.Service
             ClientReady?.Invoke(client);
         }
 
-        private void Client_OnDisconnect(TcpConnection tcpConnection) => Connections.TryRemove(tcpConnection.Id, out tcpConnection);
-        
+        private void Client_OnDisconnect(TcpConnection tcpConnection) =>
+            Connections.TryRemove(tcpConnection.Id, out tcpConnection);
+
         private void Client_OnMessageRecived(TcpConnection tcpConnection, NetworkMessage networkMessage)
-        {
-            throw new NotImplementedException();
-        }
+            => CommandManager.DispatchAsync(networkMessage.Tag, networkMessage.Payload);
 
         private void DiffieHellman(TcpConnection client)
         {

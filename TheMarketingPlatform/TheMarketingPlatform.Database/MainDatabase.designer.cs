@@ -42,15 +42,18 @@ namespace TheMarketingPlatform.Database
     partial void InsertMail(Mail instance);
     partial void UpdateMail(Mail instance);
     partial void DeleteMail(Mail instance);
-    partial void InsertMailAttachment(MailAttachment instance);
-    partial void UpdateMailAttachment(MailAttachment instance);
-    partial void DeleteMailAttachment(MailAttachment instance);
-    partial void InsertMailAddress(MailAddress instance);
-    partial void UpdateMailAddress(MailAddress instance);
-    partial void DeleteMailAddress(MailAddress instance);
     partial void InsertMailAccount(MailAccount instance);
     partial void UpdateMailAccount(MailAccount instance);
     partial void DeleteMailAccount(MailAccount instance);
+    partial void InsertMailAccountFolder(MailAccountFolder instance);
+    partial void UpdateMailAccountFolder(MailAccountFolder instance);
+    partial void DeleteMailAccountFolder(MailAccountFolder instance);
+    partial void InsertMailAddress(MailAddress instance);
+    partial void UpdateMailAddress(MailAddress instance);
+    partial void DeleteMailAddress(MailAddress instance);
+    partial void InsertMailAttachment(MailAttachment instance);
+    partial void UpdateMailAttachment(MailAttachment instance);
+    partial void DeleteMailAttachment(MailAttachment instance);
     #endregion
 		
 		public MainDatabaseContext() : 
@@ -115,11 +118,19 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<MailAttachment> MailAttachment
+		public System.Data.Linq.Table<MailAccount> MailAccount
 		{
 			get
 			{
-				return this.GetTable<MailAttachment>();
+				return this.GetTable<MailAccount>();
+			}
+		}
+		
+		public System.Data.Linq.Table<MailAccountFolder> MailAccountFolder
+		{
+			get
+			{
+				return this.GetTable<MailAccountFolder>();
 			}
 		}
 		
@@ -131,11 +142,11 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<MailAccount> MailAccount
+		public System.Data.Linq.Table<MailAttachment> MailAttachment
 		{
 			get
 			{
-				return this.GetTable<MailAccount>();
+				return this.GetTable<MailAttachment>();
 			}
 		}
 	}
@@ -809,9 +820,9 @@ namespace TheMarketingPlatform.Database
 		
 		private EntitySet<LuisResponse> _LuisResponse;
 		
-		private EntitySet<MailAttachment> _MailAttachment;
-		
 		private EntitySet<MailAddress> _MailAddress;
+		
+		private EntitySet<MailAttachment> _MailAttachment;
 		
     #region Definitionen der Erweiterungsmethoden
     partial void OnLoaded();
@@ -830,8 +841,8 @@ namespace TheMarketingPlatform.Database
 		public Mail()
 		{
 			this._LuisResponse = new EntitySet<LuisResponse>(new Action<LuisResponse>(this.attach_LuisResponse), new Action<LuisResponse>(this.detach_LuisResponse));
-			this._MailAttachment = new EntitySet<MailAttachment>(new Action<MailAttachment>(this.attach_MailAttachment), new Action<MailAttachment>(this.detach_MailAttachment));
 			this._MailAddress = new EntitySet<MailAddress>(new Action<MailAddress>(this.attach_MailAddress), new Action<MailAddress>(this.detach_MailAddress));
+			this._MailAttachment = new EntitySet<MailAttachment>(new Action<MailAttachment>(this.attach_MailAttachment), new Action<MailAttachment>(this.detach_MailAttachment));
 			OnCreated();
 		}
 		
@@ -928,19 +939,6 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Mail_MailAttachment", Storage="_MailAttachment", ThisKey="Id", OtherKey="MailId")]
-		public EntitySet<MailAttachment> MailAttachment
-		{
-			get
-			{
-				return this._MailAttachment;
-			}
-			set
-			{
-				this._MailAttachment.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Mail_MailAddress", Storage="_MailAddress", ThisKey="Id", OtherKey="MailId")]
 		public EntitySet<MailAddress> MailAddress
 		{
@@ -951,6 +949,19 @@ namespace TheMarketingPlatform.Database
 			set
 			{
 				this._MailAddress.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Mail_MailAttachment", Storage="_MailAttachment", ThisKey="Id", OtherKey="MailId")]
+		public EntitySet<MailAttachment> MailAttachment
+		{
+			get
+			{
+				return this._MailAttachment;
+			}
+			set
+			{
+				this._MailAttachment.Assign(value);
 			}
 		}
 		
@@ -986,18 +997,6 @@ namespace TheMarketingPlatform.Database
 			entity.Mail = null;
 		}
 		
-		private void attach_MailAttachment(MailAttachment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Mail = this;
-		}
-		
-		private void detach_MailAttachment(MailAttachment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Mail = null;
-		}
-		
 		private void attach_MailAddress(MailAddress entity)
 		{
 			this.SendPropertyChanging();
@@ -1009,64 +1008,306 @@ namespace TheMarketingPlatform.Database
 			this.SendPropertyChanging();
 			entity.Mail = null;
 		}
+		
+		private void attach_MailAttachment(MailAttachment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Mail = this;
+		}
+		
+		private void detach_MailAttachment(MailAttachment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Mail = null;
+		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MailAttachment")]
-	public partial class MailAttachment : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MailAccount")]
+	public partial class MailAccount : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _MailId;
-		
 		private int _Id;
 		
-		private System.Data.Linq.Binary _Attachment;
+		private int _Port;
 		
-		private string _FileExtension;
+		private string _Host;
 		
-		private EntityRef<Mail> _Mail;
+		private string _Username;
+		
+		private string _Password;
+		
+		private bool _UseSsl;
+		
+		private System.Data.Linq.Binary _Type;
+		
+		private EntitySet<MailAccountFolder> _MailAccountFolder;
 		
     #region Definitionen der Erweiterungsmethoden
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnMailIdChanging(int value);
-    partial void OnMailIdChanged();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnAttachmentChanging(System.Data.Linq.Binary value);
-    partial void OnAttachmentChanged();
-    partial void OnFileExtensionChanging(string value);
-    partial void OnFileExtensionChanged();
+    partial void OnPortChanging(int value);
+    partial void OnPortChanged();
+    partial void OnHostChanging(string value);
+    partial void OnHostChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnUseSslChanging(bool value);
+    partial void OnUseSslChanged();
+    partial void OnTypeChanging(System.Data.Linq.Binary value);
+    partial void OnTypeChanged();
     #endregion
 		
-		public MailAttachment()
+		public MailAccount()
 		{
-			this._Mail = default(EntityRef<Mail>);
+			this._MailAccountFolder = new EntitySet<MailAccountFolder>(new Action<MailAccountFolder>(this.attach_MailAccountFolder), new Action<MailAccountFolder>(this.detach_MailAccountFolder));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MailId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
 		{
 			get
 			{
-				return this._MailId;
+				return this._Id;
 			}
 			set
 			{
-				if ((this._MailId != value))
+				if ((this._Id != value))
 				{
-					if (this._Mail.HasLoadedOrAssignedValue)
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Port", DbType="Int NOT NULL")]
+		public int Port
+		{
+			get
+			{
+				return this._Port;
+			}
+			set
+			{
+				if ((this._Port != value))
+				{
+					this.OnPortChanging(value);
+					this.SendPropertyChanging();
+					this._Port = value;
+					this.SendPropertyChanged("Port");
+					this.OnPortChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Host", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Host
+		{
+			get
+			{
+				return this._Host;
+			}
+			set
+			{
+				if ((this._Host != value))
+				{
+					this.OnHostChanging(value);
+					this.SendPropertyChanging();
+					this._Host = value;
+					this.SendPropertyChanged("Host");
+					this.OnHostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UseSsl", DbType="Bit NOT NULL")]
+		public bool UseSsl
+		{
+			get
+			{
+				return this._UseSsl;
+			}
+			set
+			{
+				if ((this._UseSsl != value))
+				{
+					this.OnUseSslChanging(value);
+					this.SendPropertyChanging();
+					this._UseSsl = value;
+					this.SendPropertyChanged("UseSsl");
+					this.OnUseSslChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Binary(1) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MailAccount_MailAccountFolder", Storage="_MailAccountFolder", ThisKey="Id", OtherKey="MailAccountId")]
+		public EntitySet<MailAccountFolder> MailAccountFolder
+		{
+			get
+			{
+				return this._MailAccountFolder;
+			}
+			set
+			{
+				this._MailAccountFolder.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_MailAccountFolder(MailAccountFolder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MailAccount = this;
+		}
+		
+		private void detach_MailAccountFolder(MailAccountFolder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MailAccount = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MailAccountFolder")]
+	public partial class MailAccountFolder : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MailAccountId;
+		
+		private int _Id;
+		
+		private string _Folder;
+		
+		private EntityRef<MailAccount> _MailAccount;
+		
+    #region Definitionen der Erweiterungsmethoden
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMailAccountIdChanging(int value);
+    partial void OnMailAccountIdChanged();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnFolderChanging(string value);
+    partial void OnFolderChanged();
+    #endregion
+		
+		public MailAccountFolder()
+		{
+			this._MailAccount = default(EntityRef<MailAccount>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailAccountId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MailAccountId
+		{
+			get
+			{
+				return this._MailAccountId;
+			}
+			set
+			{
+				if ((this._MailAccountId != value))
+				{
+					if (this._MailAccount.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnMailIdChanging(value);
+					this.OnMailAccountIdChanging(value);
 					this.SendPropertyChanging();
-					this._MailId = value;
-					this.SendPropertyChanged("MailId");
-					this.OnMailIdChanged();
+					this._MailAccountId = value;
+					this.SendPropertyChanged("MailAccountId");
+					this.OnMailAccountIdChanged();
 				}
 			}
 		}
@@ -1091,76 +1332,56 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Attachment", DbType="VarBinary(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Attachment
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Folder", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Folder
 		{
 			get
 			{
-				return this._Attachment;
+				return this._Folder;
 			}
 			set
 			{
-				if ((this._Attachment != value))
+				if ((this._Folder != value))
 				{
-					this.OnAttachmentChanging(value);
+					this.OnFolderChanging(value);
 					this.SendPropertyChanging();
-					this._Attachment = value;
-					this.SendPropertyChanged("Attachment");
-					this.OnAttachmentChanged();
+					this._Folder = value;
+					this.SendPropertyChanged("Folder");
+					this.OnFolderChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileExtension", DbType="NVarChar(260)")]
-		public string FileExtension
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MailAccount_MailAccountFolder", Storage="_MailAccount", ThisKey="MailAccountId", OtherKey="Id", IsForeignKey=true)]
+		public MailAccount MailAccount
 		{
 			get
 			{
-				return this._FileExtension;
+				return this._MailAccount.Entity;
 			}
 			set
 			{
-				if ((this._FileExtension != value))
-				{
-					this.OnFileExtensionChanging(value);
-					this.SendPropertyChanging();
-					this._FileExtension = value;
-					this.SendPropertyChanged("FileExtension");
-					this.OnFileExtensionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Mail_MailAttachment", Storage="_Mail", ThisKey="MailId", OtherKey="Id", IsForeignKey=true)]
-		public Mail Mail
-		{
-			get
-			{
-				return this._Mail.Entity;
-			}
-			set
-			{
-				Mail previousValue = this._Mail.Entity;
+				MailAccount previousValue = this._MailAccount.Entity;
 				if (((previousValue != value) 
-							|| (this._Mail.HasLoadedOrAssignedValue == false)))
+							|| (this._MailAccount.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Mail.Entity = null;
-						previousValue.MailAttachment.Remove(this);
+						this._MailAccount.Entity = null;
+						previousValue.MailAccountFolder.Remove(this);
 					}
-					this._Mail.Entity = value;
+					this._MailAccount.Entity = value;
 					if ((value != null))
 					{
-						value.MailAttachment.Add(this);
-						this._MailId = value.Id;
+						value.MailAccountFolder.Add(this);
+						this._MailAccountId = value.Id;
 					}
 					else
 					{
-						this._MailId = default(int);
+						this._MailAccountId = default(int);
 					}
-					this.SendPropertyChanged("Mail");
+					this.SendPropertyChanged("MailAccount");
 				}
 			}
 		}
@@ -1337,49 +1558,64 @@ namespace TheMarketingPlatform.Database
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MailAccount")]
-	public partial class MailAccount : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MailAttachment")]
+	public partial class MailAttachment : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
+		private int _MailId;
+		
 		private int _Id;
 		
-		private int _Port;
+		private System.Data.Linq.Binary _Attachment;
 		
-		private string _Host;
+		private string _FileExtension;
 		
-		private string _Username;
-		
-		private string _Password;
-		
-		private bool _UseSsl;
-		
-		private System.Data.Linq.Binary _Type;
+		private EntityRef<Mail> _Mail;
 		
     #region Definitionen der Erweiterungsmethoden
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
+    partial void OnMailIdChanging(int value);
+    partial void OnMailIdChanged();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnPortChanging(int value);
-    partial void OnPortChanged();
-    partial void OnHostChanging(string value);
-    partial void OnHostChanged();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnUseSslChanging(bool value);
-    partial void OnUseSslChanged();
-    partial void OnTypeChanging(System.Data.Linq.Binary value);
-    partial void OnTypeChanged();
+    partial void OnAttachmentChanging(System.Data.Linq.Binary value);
+    partial void OnAttachmentChanged();
+    partial void OnFileExtensionChanging(string value);
+    partial void OnFileExtensionChanged();
     #endregion
 		
-		public MailAccount()
+		public MailAttachment()
 		{
+			this._Mail = default(EntityRef<Mail>);
 			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MailId
+		{
+			get
+			{
+				return this._MailId;
+			}
+			set
+			{
+				if ((this._MailId != value))
+				{
+					if (this._Mail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMailIdChanging(value);
+					this.SendPropertyChanging();
+					this._MailId = value;
+					this.SendPropertyChanged("MailId");
+					this.OnMailIdChanged();
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
@@ -1402,122 +1638,76 @@ namespace TheMarketingPlatform.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Port", DbType="Int NOT NULL")]
-		public int Port
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Attachment", DbType="VarBinary(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Attachment
 		{
 			get
 			{
-				return this._Port;
+				return this._Attachment;
 			}
 			set
 			{
-				if ((this._Port != value))
+				if ((this._Attachment != value))
 				{
-					this.OnPortChanging(value);
+					this.OnAttachmentChanging(value);
 					this.SendPropertyChanging();
-					this._Port = value;
-					this.SendPropertyChanged("Port");
-					this.OnPortChanged();
+					this._Attachment = value;
+					this.SendPropertyChanged("Attachment");
+					this.OnAttachmentChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Host", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Host
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileExtension", DbType="NVarChar(260)")]
+		public string FileExtension
 		{
 			get
 			{
-				return this._Host;
+				return this._FileExtension;
 			}
 			set
 			{
-				if ((this._Host != value))
+				if ((this._FileExtension != value))
 				{
-					this.OnHostChanging(value);
+					this.OnFileExtensionChanging(value);
 					this.SendPropertyChanging();
-					this._Host = value;
-					this.SendPropertyChanged("Host");
-					this.OnHostChanged();
+					this._FileExtension = value;
+					this.SendPropertyChanged("FileExtension");
+					this.OnFileExtensionChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Username
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Mail_MailAttachment", Storage="_Mail", ThisKey="MailId", OtherKey="Id", IsForeignKey=true)]
+		public Mail Mail
 		{
 			get
 			{
-				return this._Username;
+				return this._Mail.Entity;
 			}
 			set
 			{
-				if ((this._Username != value))
+				Mail previousValue = this._Mail.Entity;
+				if (((previousValue != value) 
+							|| (this._Mail.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnUsernameChanging(value);
 					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UseSsl", DbType="Bit NOT NULL")]
-		public bool UseSsl
-		{
-			get
-			{
-				return this._UseSsl;
-			}
-			set
-			{
-				if ((this._UseSsl != value))
-				{
-					this.OnUseSslChanging(value);
-					this.SendPropertyChanging();
-					this._UseSsl = value;
-					this.SendPropertyChanged("UseSsl");
-					this.OnUseSslChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Binary(1) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Type
-		{
-			get
-			{
-				return this._Type;
-			}
-			set
-			{
-				if ((this._Type != value))
-				{
-					this.OnTypeChanging(value);
-					this.SendPropertyChanging();
-					this._Type = value;
-					this.SendPropertyChanged("Type");
-					this.OnTypeChanged();
+					if ((previousValue != null))
+					{
+						this._Mail.Entity = null;
+						previousValue.MailAttachment.Remove(this);
+					}
+					this._Mail.Entity = value;
+					if ((value != null))
+					{
+						value.MailAttachment.Add(this);
+						this._MailId = value.Id;
+					}
+					else
+					{
+						this._MailId = default(int);
+					}
+					this.SendPropertyChanged("Mail");
 				}
 			}
 		}

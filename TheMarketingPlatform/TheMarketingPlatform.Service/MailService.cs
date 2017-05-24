@@ -20,18 +20,22 @@ namespace TheMarketingPlatform.Service
 
         public MailService(SettingsHandler settingsHandler)
         {
-            mailService = new Mail.MailService(SettingsHandler.DatabaseController.MailClientSettings);
+            mailService = new Mail.MailService(settingsHandler.DatabaseController.MailClientSettings);
             SettingsHandler = settingsHandler;
         }
 
         internal void Start()
         {
-            timer = new Timer(Process, null, 0, (int)SettingsHandler["MailServiceHandlerPeriod"]);
+            timer = new Timer(Process, null, 0, (int)(long)SettingsHandler["MailServiceHandlerPeriod"]);
         }
 
         private void Process(object state)
         {
-            var lastMessage = SettingsHandler.DatabaseController.GetLastMessage();
+            var lastMessage = SettingsHandler.DatabaseController.GetLastMessage() ?? new Database.Mail()
+            {
+                TimeStamp = DateTimeOffset.MinValue
+            };
+
             var messages = mailService.GetMails(lastMessage.TimeStamp);
 
             OnNewMessages?.Invoke(this, messages.ToArray());
