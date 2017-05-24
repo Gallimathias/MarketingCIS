@@ -4,12 +4,14 @@
 
 /TheMarketingPlatform/.vs/
 /TheMarketingPlatform/packages/
+
 /TheMarketingPlatform/TheMarketingPlatform.Core/bin/
 /TheMarketingPlatform/TheMarketingPlatform.Database/bin/
 /TheMarketingPlatform/TheMarketingPlatform.databaseproject/bin/
 /TheMarketingPlatform/TheMarketingPlatform.Mail/bin/
 /TheMarketingPlatform/TheMarketingPlatform.Service/bin/
 /TheMarketingPlatform/TheMarketingPlatfrom.CognitiveServices/bin/
+/TheMarketingPlatform/TheMarketingPlatfrom.Client/bin/
 
 /TheMarketingPlatform/TheMarketingPlatform.Core/obj/
 /TheMarketingPlatform/TheMarketingPlatform.Database/obj/
@@ -17,3 +19,5 @@
 /TheMarketingPlatform/TheMarketingPlatform.Mail/obj/
 /TheMarketingPlatform/TheMarketingPlatform.Service/obj/
 /TheMarketingPlatform/TheMarketingPlatfrom.CognitiveServices/obj/
+/TheMarketingPlatform/TheMarketingPlatfom.Client/obj/
+/TheMarketingPlatform/TheMarketingPlatfom.Client/obj/Debug

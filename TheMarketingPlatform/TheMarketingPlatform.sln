@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatform.Mail",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatfrom.CognitiveServices", "TheMarketingPlatfrom.CognitiveServices\TheMarketingPlatfrom.CognitiveServices.csproj", "{EA8DF9FB-70FB-4D45-8C43-34666B121865}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatfom.Client", "TheMarketingPlatfom.Client\TheMarketingPlatfom.Client.csproj", "{A0C54CE7-4344-42E8-8867-C5E443C0B6EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{EA8DF9FB-70FB-4D45-8C43-34666B121865}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA8DF9FB-70FB-4D45-8C43-34666B121865}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA8DF9FB-70FB-4D45-8C43-34666B121865}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0C54CE7-4344-42E8-8867-C5E443C0B6EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C54CE7-4344-42E8-8867-C5E443C0B6EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C54CE7-4344-42E8-8867-C5E443C0B6EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C54CE7-4344-42E8-8867-C5E443C0B6EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
