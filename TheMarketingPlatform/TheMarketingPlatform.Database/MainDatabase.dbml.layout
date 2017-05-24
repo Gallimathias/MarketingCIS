@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 11" name="TheMarketingPlatformDatabase">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 11.5" name="TheMarketingPlatformDatabase">
   <DataContextMoniker Name="/MainDatabaseContext" />
   <nestedChildShapes>
     <classShape Id="ff013528-9282-450b-ba01-6574e9e24ac5" absoluteBounds="6.25, 5.75, 2, 2.1554996744791666">
@@ -39,7 +39,7 @@
         <classShapeMoniker Id="ff013528-9282-450b-ba01-6574e9e24ac5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.09375 : 4.875); (5.09375 : 3.73484537760417); (7 : 3.73484537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.09375 : 4.875); (5.09375 : 3.73484537760417); (7 : 3.73484537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MainDatabaseContext/LuisResponse/LuisResponse_LuisIntent" />
       <nodes>
         <classShapeMoniker Id="bf878b5b-e747-4b24-a819-643448c22819" />
@@ -60,12 +60,6 @@
         <classShapeMoniker Id="3267ced5-66a8-4c8f-b889-e1b1611d11dd" />
       </nodes>
     </associationConnector>
-    <classShape Id="b76847df-f13e-4a4f-9f74-0602ab17d58d" absoluteBounds="6.375, 8.75, 2, 1.9631982421874987">
-      <DataClassMoniker Name="/MainDatabaseContext/MailAccount" />
-      <nestedChildShapes>
-        <elementListCompartment Id="01319d66-6d18-4d4e-9358-81968c0fe863" absoluteBounds="6.39, 9.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="09fe5b00-c12c-48b5-957c-27f251a147a6" absoluteBounds="2.625, 1.875, 2, 1.3862939453125">
       <DataClassMoniker Name="/MainDatabaseContext/MailAddress" />
       <nestedChildShapes>
@@ -79,5 +73,11 @@
         <classShapeMoniker Id="09fe5b00-c12c-48b5-957c-27f251a147a6" />
       </nodes>
     </associationConnector>
+    <classShape Id="4995d0a3-60f3-418e-bed5-13b427b6a173" absoluteBounds="7.375, 9.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/MainDatabaseContext/MailAccount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b5fd3652-8dcb-49cf-a05a-597fd91e7741" absoluteBounds="7.39, 9.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

@@ -19,7 +19,7 @@ namespace TheMarketingPlatform.Database
         public Controller(string connection)
         {
             databaseContext = new MainDatabaseContext(connection);
-            
+
         }
 
         public Mail GetLastMessage() =>
@@ -117,7 +117,7 @@ namespace TheMarketingPlatform.Database
                 MailClientSettings.Add(new ClientSetting()
                 {
                     Host = setting.Host,
-                    Password = setting.Password,
+                    //Password = setting.Password,
                     Port = setting.Port,
                     Type = (MailClientType)setting.Type.ToArray()[0],
                     UserName = setting.Username,
