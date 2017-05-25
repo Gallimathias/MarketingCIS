@@ -18,7 +18,6 @@ namespace TheMarketingPlatform
         private TcpClient client;
         private SettingsHandler settingsHandler;
         private TrayIcon trayIcon;
-        private Timer timer;
 
         public App()
         {

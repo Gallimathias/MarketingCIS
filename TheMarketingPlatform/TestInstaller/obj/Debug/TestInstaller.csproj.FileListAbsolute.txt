@@ -8,3 +8,4 @@ D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\Tes
 D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\obj\Debug\TestInstaller.csprojResolveAssemblyReference.cache
 D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\obj\Debug\TestInstaller.exe
 D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\obj\Debug\TestInstaller.pdb
+D:\Projekte\Visual 2017\The-Cognitiv-Marketing-Platform\TheMarketingPlatform\TestInstaller\bin\Debug\TheMarketingPlatform.Core.xml

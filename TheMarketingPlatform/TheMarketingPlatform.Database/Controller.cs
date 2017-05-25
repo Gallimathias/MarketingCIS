@@ -12,6 +12,9 @@ using TheMarketingPlatform.Mail;
 
 namespace TheMarketingPlatform.Database
 {
+    /// <summary>
+    /// Handles database connections
+    /// </summary>
     public class Controller
     {
         public List<IMailClientSettings> MailClientSettings { get; private set; }

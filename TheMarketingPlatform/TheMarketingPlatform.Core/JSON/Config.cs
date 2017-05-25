@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace TheMarketingPlatform.Core.JSON
 {
+    /// <summary>
+    /// Represents a config file for json
+    /// </summary>
     public class Config
     {
+        /// <summary>
+        /// the main settings dictionary
+        /// </summary>
         public Dictionary<string, object> Settings { get; set; }
 
-
+        /// <summary>
+        /// Represents a config file for json
+        /// </summary>
         public Config()
         {
             Settings = new Dictionary<string, object>();

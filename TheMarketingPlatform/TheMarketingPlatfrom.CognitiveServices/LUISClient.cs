@@ -10,6 +10,9 @@ using TheMarketingPlatform.Core.JSON;
 
 namespace TheMarketingPlatform.CognitiveServices
 {
+    /// <summary>
+    /// A LUIS implementation of Cognitive services
+    /// </summary>
     public class LUISClient : CognitiveServiceClient<Response>
     {
 

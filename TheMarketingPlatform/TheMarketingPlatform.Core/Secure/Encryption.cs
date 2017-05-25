@@ -8,8 +8,18 @@ using System.IO;
 
 namespace TheMarketingPlatform.Core.Secure
 {
+    /// <summary>
+    /// Help class for encryption and decryption
+    /// </summary>
     public sealed class Encryption
     {
+        /// <summary>
+        /// Encrypts data with aes
+        /// </summary>
+        /// <param name="data">the clear data</param>
+        /// <param name="key">the key for aes</param>
+        /// <param name="vector">the IV vector</param>
+        /// <returns>returns encrypted data</returns>
         public static byte[] Encrypt(byte[] data, byte[] key, byte[] vector)
         {
             byte[] encrypt;
@@ -39,6 +49,13 @@ namespace TheMarketingPlatform.Core.Secure
             return encrypt;
         }
 
+        /// <summary>
+        /// Decrypts data with aes
+        /// </summary>
+        /// <param name="data">the encrypted data</param>
+        /// <param name="key">a key for aes</param>
+        /// <param name="vector">a IV vector for aes</param>
+        /// <returns>the decrypted data</returns>
         public static byte[] Decrypt(byte[] data, byte[] key, byte[] vector)
         {
             byte[] decrypt = new byte[data.Length];
@@ -68,6 +85,11 @@ namespace TheMarketingPlatform.Core.Secure
             return decrypt;
         }
 
+        /// <summary>
+        /// Hash data with the sha 256 algorithm
+        /// </summary>
+        /// <param name="data">Data to hash</param>
+        /// <returns>returns a 256 bit hash</returns>
         public static byte[] Hash256(byte[] data)
         {
             using (var sha = new SHA256Managed())
@@ -76,6 +98,11 @@ namespace TheMarketingPlatform.Core.Secure
             }
         }
 
+        /// <summary>
+        /// Hash data with the sha 512 algorithm
+        /// </summary>
+        /// <param name="data">Data to hash</param>
+        /// <returns>returns a 512 bit hash</returns>
         public static byte[] Hash512(byte[] data)
         {
             using (var sha = new SHA512Managed())
@@ -84,6 +111,10 @@ namespace TheMarketingPlatform.Core.Secure
             }
         }
 
+        /// <summary>
+        /// Returns a random vector and key for aes
+        /// </summary>
+        /// <returns>Returns a tuble of vector and key</returns>
         public static (byte[] key, byte[] vector) GetKeyAndVector()
         {
             using (var aes = new AesManaged())
@@ -95,6 +126,10 @@ namespace TheMarketingPlatform.Core.Secure
             }
         }
 
+        /// <summary>
+        /// Generates a random key for aes
+        /// </summary>
+        /// <returns>a random key</returns>
         public static byte[] GetKey()
         {
             using (var aes = new AesManaged())
@@ -104,6 +139,10 @@ namespace TheMarketingPlatform.Core.Secure
             }
         }
 
+        /// <summary>
+        /// Generates a random vector for aes
+        /// </summary>
+        /// <returns>a random IV vector</returns>
         public static byte[] GetVector()
         {
             using (var aes = new AesManaged())
@@ -113,6 +152,11 @@ namespace TheMarketingPlatform.Core.Secure
             }
         }
 
+        /// <summary>
+        /// Get random numbers with specific size
+        /// </summary>
+        /// <param name="size">the size of the array</param>
+        /// <returns>returns a array with random numbers</returns>
         public static byte[] GetRandom(int size)
         {
             var array = new byte[size];

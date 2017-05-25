@@ -10,10 +10,19 @@ using TheMarketingPlatform.Core.Secure;
 
 namespace TheMarketingPlatform.Core.Network
 {
+    /// <summary>
+    /// Represents a connection via tcp
+    /// </summary>
     public class TcpConnection
     {
+        /// <summary>
+        /// Max no. of allowed failed messages
+        /// </summary>
         public const int MAX_EMPTYCOUNT = 10;
 
+        /// <summary>
+        /// The NetworkStream from the base tcpClient
+        /// </summary>
         public NetworkStream Stream
         {
             get
@@ -23,8 +32,17 @@ namespace TheMarketingPlatform.Core.Network
                 return tcpClient?.GetStream();
             }
         }
+        /// <summary>
+        /// Returns true if the base tcpClient is connected
+        /// </summary>
         public bool Connected => tcpClient.Connected;
+        /// <summary>
+        /// Returns true if the connection has a key and use a secure tunnel
+        /// </summary>
         public bool IsSecure { get; private set; }
+        /// <summary>
+        /// Key from diffiehellman key exchange. If set then the connection is secure
+        /// </summary>
         public byte[] Key
         {
             get => key;
@@ -34,7 +52,13 @@ namespace TheMarketingPlatform.Core.Network
                 IsSecure = true;
             }
         }
+        /// <summary>
+        /// The id of the connection in the server. Only serverside
+        /// </summary>
         public int Id { get; set; }
+        /// <summary>
+        /// Count of failed messages
+        /// </summary>
         public int EmptyCount
         {
             get => emptyCount;
@@ -51,12 +75,34 @@ namespace TheMarketingPlatform.Core.Network
         private CancellationTokenSource tokenSource;
         private int emptyCount;
 
+        /// <summary>
+        /// Handles message events
+        /// </summary>
+        /// <param name="tcpConnection">The sender</param>
+        /// <param name="networkMessage">The throwing message</param>
         public delegate void MessageEventHandler(TcpConnection tcpConnection, NetworkMessage networkMessage);
+        /// <summary>
+        /// Handles connection events
+        /// </summary>
+        /// <param name="tcpConnection">the sending connection</param>
         public delegate void ConnectionEventHandler(TcpConnection tcpConnection);
+        /// <summary>
+        /// Thrown if a message is recived
+        /// </summary>
         public event MessageEventHandler OnMessageRecived;
+        /// <summary>
+        /// Thrown on disconnect
+        /// </summary>
         public event ConnectionEventHandler OnDisconnect;
+        /// <summary>
+        /// Thrown on connect
+        /// </summary>
         public event ConnectionEventHandler OnConnect;
 
+        /// <summary>
+        /// Represents a connection via tcp. From exist connection
+        /// </summary>
+        /// <param name="tcpClient">a connected tcp client</param>
         public TcpConnection(TcpClient tcpClient)
         {
             this.tcpClient = tcpClient;
@@ -65,8 +111,16 @@ namespace TheMarketingPlatform.Core.Network
 
             tokenSource = new CancellationTokenSource();
         }
+        /// <summary>
+        /// Represents a connection via tcp. Implements a new connection
+        /// </summary>
+        /// <param name="host">the target host</param>
+        /// <param name="port">the target port</param>
         public TcpConnection(string host, int port) : this(new TcpClient(host, port)) { }
 
+        /// <summary>
+        /// Close this connection
+        /// </summary>
         public void Disconnect()
         {
             Send(new NetworkMessage("disconnect", new byte[0]));
@@ -76,6 +130,11 @@ namespace TheMarketingPlatform.Core.Network
             OnDisconnect?.Invoke(this);
         }
 
+        /// <summary>
+        /// Start or restart the connection
+        /// </summary>
+        /// <param name="host">The target host</param>
+        /// <param name="port">The target port</param>
         public void Connect(string host, int port)
         {
             tcpClient?.Connect(host, port);
@@ -84,6 +143,9 @@ namespace TheMarketingPlatform.Core.Network
                 OnConnect?.Invoke(this);
         }
 
+        /// <summary>
+        /// Beginns async listening
+        /// </summary>
         public void BeginRecive()
         {
             Task.Run(() =>
@@ -100,8 +162,16 @@ namespace TheMarketingPlatform.Core.Network
             }, tokenSource.Token);
         }
 
+        /// <summary>
+        /// Wait on recive
+        /// </summary>
+        /// <returns>The recived message</returns>
         public NetworkMessage ReciveMessage() => IsSecure ? ReadSecure() : Read();
 
+        /// <summary>
+        /// Sends a network message
+        /// </summary>
+        /// <param name="message">the message to send</param>
         public void Send(NetworkMessage message)
         {
             if (IsSecure)
@@ -110,6 +180,10 @@ namespace TheMarketingPlatform.Core.Network
                 Write(message);
         }
 
+        /// <summary>
+        /// Sends a network message async
+        /// </summary>
+        /// <param name="message">the message to send</param>
         public void SendAsync(NetworkMessage message) => Task.Run(() => Send(message), tokenSource.Token);
 
 
@@ -212,6 +286,11 @@ namespace TheMarketingPlatform.Core.Network
             }
         }
 
+        /// <summary>
+        /// Converts a byte[] list to a singel dimension array
+        /// </summary>
+        /// <param name="dataList">A list of byte arrays</param>
+        /// <returns>a singel dimension array</returns>
         public static byte[] GetDataFromList(List<byte[]> dataList)
         {
             using (var stream = new MemoryStream())
@@ -229,6 +308,11 @@ namespace TheMarketingPlatform.Core.Network
             }
         }
 
+        /// <summary>
+        /// Converts a single dimension byte array to a byte array list
+        /// </summary>
+        /// <param name="data">a single dimension byte array</param>
+        /// <returns>returns a list of byte arrays</returns>
         public static List<byte[]> GetListFromData(byte[] data)
         {
             var list = new List<byte[]>();
