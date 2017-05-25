@@ -33,6 +33,9 @@
     <Reference Include="Command Management System, Version=2.0.6353.31217, Culture=neutral, PublicKeyToken=304a821013b0b687, processorArchitecture=MSIL">
       <HintPath>..\packages\CommandManagementSystem.2.0.0-alpha1\lib\net47\Command Management System.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,11 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\OneTimeCommands.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="TcpClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ClientCommandManager.cs" />
     <Compile Include="SettingsHandler.cs" />
   </ItemGroup>
   <ItemGroup>

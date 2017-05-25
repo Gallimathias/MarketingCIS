@@ -37,8 +37,6 @@ namespace TheMarketingPlatform.Client
             if (ReciveMessage().IsEmpty)
                 return;
             
-            BeginRecive();
-
         }
     }
 }

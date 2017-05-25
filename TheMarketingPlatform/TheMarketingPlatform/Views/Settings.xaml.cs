@@ -13,22 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TheMarketingPlatform.Client;
+using TheMarketingPlatform.Core.JSON;
 
 namespace TheMarketingPlatform.Views
 {
-    /// <summary>
-    /// Interaktionslogik für Settings.xaml
-    /// </summary>
     public partial class Settings : Page
     {
         private SettingsHandler settingsHandler;
+        private Config serverConfig;
         public Settings(SettingsHandler settingsHandler)
         {
             this.settingsHandler = settingsHandler;
             InitializeComponent();
 
             InitializeFileSettings();
-            InitializeEvents(MainGrid);            
+            InitializeEvents(MainGrid);
         }
 
         private void InitializeEvents(DependencyObject obj)
@@ -46,14 +45,25 @@ namespace TheMarketingPlatform.Views
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (settingsHandler.Client == null)
+                return;
+
             var textBox = (TextBox)sender;
-            settingsHandler[(string)textBox.Tag] = textBox.Text;
+            var tag = (string)textBox.Tag;
+            if (tag[0] == '+')
+                serverConfig.Settings[tag.Substring(1)] = textBox.Text;
+            else
+                settingsHandler[tag] = textBox.Text;
             settingsHandler.ApplyChangesToFile();
+            settingsHandler.SendConfigToServer(serverConfig);
         }
 
         private void InitializeFileSettings()
         {
+            if (settingsHandler.Client == null)
+                return;
 
+            serverConfig = settingsHandler.GetServerSettings();
             HostBox.Text = (string)settingsHandler["Host"];
             HostBox.Tag = "Host";
             PortBox.Text = ((long)settingsHandler["Port"]).ToString();
@@ -66,6 +76,27 @@ namespace TheMarketingPlatform.Views
                 settingsHandler["Initializes"] = true;
                 settingsHandler.ApplyChangesToFile();
             }
+
+            ShowServerConfig(serverConfig);
+        }
+
+        private void ShowServerConfig(Config serverConfig)
+        {
+            if (serverConfig == null)
+                return;
+
+            LuisIdBox.Text = (string)serverConfig.Settings["LUISAppId"];
+            LuisIdBox.Tag = "+LUISAppId";
+            LuisKeyBox.Text = (string)serverConfig.Settings["LUISAppKey"];
+            LuisKeyBox.Tag = "+LUISAppKey";
+            ServerPortBox.Text = ((long)serverConfig.Settings["ServerPort"]).ToString();
+            ServerPortBox.Tag = "+ServerPort";
+            MailHandlingBox.Text = ((long)serverConfig.Settings["MailServiceHandlerPeriod"]).ToString();
+            MailHandlingBox.Tag = "+MailServiceHandlerPeriod";
+            MailCallBox.Text = ((long)serverConfig.Settings["MailServicePeriod"]).ToString();
+            MailCallBox.Tag = "+MailServicePeriod";
+            DatabaseBox.Text = (string)serverConfig.Settings["DatabaseConnectionString"];
+            DatabaseBox.Tag = "+DatabaseConnectionString";
         }
     }
 }

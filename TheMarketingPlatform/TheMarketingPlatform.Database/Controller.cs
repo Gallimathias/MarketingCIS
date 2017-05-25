@@ -15,6 +15,12 @@ namespace TheMarketingPlatform.Database
     public class Controller
     {
         public List<IMailClientSettings> MailClientSettings { get; private set; }
+        public int MailAccountsCount => databaseContext.GetTable<MailAccount>().Count();
+
+        public List<MailAccount> MailAccounts => databaseContext.GetTable<MailAccount>().ToList();
+
+        public List<Ticket> Tickets => CreateTicketsFromDatabase();
+
 
         MainDatabaseContext databaseContext;
 
@@ -116,7 +122,7 @@ namespace TheMarketingPlatform.Database
         private void GetMailSettings()
         {
             foreach (var setting in databaseContext.GetTable<MailAccount>().Where(
-                s => s.Type == new byte[] { (byte)MailClientType.Imap}))
+                s => s.Type == new byte[] { (byte)MailClientType.Imap }))
             {
                 MailClientSettings.Add(new ImapClientSetting()
                 {
@@ -126,10 +132,70 @@ namespace TheMarketingPlatform.Database
                     UserName = setting.Username,
                     UseSsl = setting.UseSsl,
                     Folder = GetFolder(setting.MailAccountFolder.ToList())
-                    
+
                 });
             }
         }
+
+        public void AddMailAccounts(List<Core.JSON.MailAccount> list)
+        {
+            var table = databaseContext.GetTable<MailAccount>();
+
+            foreach (var account in list)
+            {
+                Enum.TryParse(account.Type, out MailClientType type);
+                var mailAccount = new MailAccount()
+                {
+                    Id = account.Id,
+                    Host = account.Host,
+                    Password = account.Password,
+                    Port = account.Port,
+                    Type = new byte[] { (byte)type },
+                    Username = account.Username,
+                    UseSsl = account.SSL
+                };
+
+                var record = table.FirstOrDefault(a => a.Id == mailAccount.Id);
+
+                if (record == null)
+                    table.InsertOnSubmit(mailAccount);
+                else
+                    record = mailAccount;
+            }
+
+            databaseContext.SubmitChanges();
+        }
+
+
+        public void RemoveMailAccounts(List<Core.JSON.MailAccount> list)
+        {
+            var table = databaseContext.GetTable<MailAccount>();
+
+            foreach (var account in list)
+            {
+                Enum.TryParse(account.Type, out MailClientType type);
+                var mailAccount = new MailAccount()
+                {
+                    Id = account.Id,
+                    Host = account.Host,
+                    Password = account.Password,
+                    Port = account.Port,
+                    Type = new byte[] { (byte)type },
+                    Username = account.Username,
+                    UseSsl = account.SSL
+                };
+
+                var record = table.FirstOrDefault(a => a.Id == mailAccount.Id);
+
+                if (record == null)
+                    continue;
+                else
+                    table.DeleteOnSubmit(mailAccount);
+            }
+
+            databaseContext.SubmitChanges();
+        }
+
 
         private List<string> GetFolder(List<MailAccountFolder> list)
         {
@@ -139,6 +205,34 @@ namespace TheMarketingPlatform.Database
                 tmp.Add(folder.Folder);
 
             return tmp;
+        }
+
+
+        private List<Ticket> CreateTicketsFromDatabase()
+        {
+            var list = new List<Ticket>();
+            foreach (var mail in databaseContext.GetTable<Mail>())
+            {
+                var luisIntent = mail.LuisResponse.OrderByDescending(
+                    l => l.TimeStamp).FirstOrDefault()?.LuisIntent.Where(
+                        i => i.IsTopScore).FirstOrDefault();
+
+                if (luisIntent == null)
+                    continue;
+
+                list.Add(new Ticket()
+                {
+                    Id = mail.Id,
+                    Body = mail.Body,
+                    From = mail.MailAddress.FirstOrDefault(
+                        m => m.Type.ToArray()[0] == (byte)AddressType.From).Adress,
+                    Date = mail.TimeStamp.ToString("MM.dd.yyyy hh:mm"),
+                    Intent = luisIntent.Intent,
+                    Score = luisIntent.Score
+                });
+            }
+
+            return list;
         }
     }
 }

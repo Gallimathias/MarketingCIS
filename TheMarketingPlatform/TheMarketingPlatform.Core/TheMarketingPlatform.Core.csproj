@@ -50,7 +50,9 @@
     <Compile Include="JSON\Config.cs" />
     <Compile Include="JSON\Entity.cs" />
     <Compile Include="JSON\Intent.cs" />
+    <Compile Include="JSON\MailAccount.cs" />
     <Compile Include="JSON\Response.cs" />
+    <Compile Include="JSON\Ticket.cs" />
     <Compile Include="Network\NetworkMessage.cs" />
     <Compile Include="Network\TcpConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,6 +12,7 @@
         <Menu x:Name="MainMenu" HorizontalAlignment="Left" Margin="10,10,0,10" Width="131.91" Background="#FF205081">
             <MenuItem x:Name="TicketsMenuItem" Header="Tickets" Height="30" Width="122" Margin="0,0,1,5" Foreground="White" Tag="Tickets"/>
             <MenuItem x:Name="SettingsMenuItem" Header="Settings" Height="30" Width="122" Margin="0,0,0,5" Foreground="White" Tag="Settings"/>
+            <MenuItem x:Name="MailAccountsMenuItem" Header="MailAccounts" Height="30" Width="122" Foreground="White" Tag="MailAccounts"/>
         </Menu>
     </Grid>
 </Window>

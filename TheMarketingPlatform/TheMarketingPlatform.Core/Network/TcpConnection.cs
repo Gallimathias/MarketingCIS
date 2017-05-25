@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
@@ -11,7 +12,17 @@ namespace TheMarketingPlatform.Core.Network
 {
     public class TcpConnection
     {
-        public NetworkStream Stream => tcpClient.GetStream();
+        public const int MAX_EMPTYCOUNT = 10;
+
+        public NetworkStream Stream
+        {
+            get
+            {
+                if (!tcpClient.Connected)
+                    return null;
+                return tcpClient?.GetStream();
+            }
+        }
         public bool Connected => tcpClient.Connected;
         public bool IsSecure { get; private set; }
         public byte[] Key
@@ -24,10 +35,21 @@ namespace TheMarketingPlatform.Core.Network
             }
         }
         public int Id { get; set; }
+        public int EmptyCount
+        {
+            get => emptyCount;
+            set
+            {
+                emptyCount = value;
+                if (emptyCount >= MAX_EMPTYCOUNT)
+                    Disconnect();
+            }
+        }
 
         private TcpClient tcpClient;
         private byte[] key;
         private CancellationTokenSource tokenSource;
+        private int emptyCount;
 
         public delegate void MessageEventHandler(TcpConnection tcpConnection, NetworkMessage networkMessage);
         public delegate void ConnectionEventHandler(TcpConnection tcpConnection);
@@ -40,15 +62,17 @@ namespace TheMarketingPlatform.Core.Network
             this.tcpClient = tcpClient;
             if (tcpClient.Connected)
                 OnConnect?.Invoke(this);
-            
+
             tokenSource = new CancellationTokenSource();
         }
         public TcpConnection(string host, int port) : this(new TcpClient(host, port)) { }
 
         public void Disconnect()
         {
+            Send(new NetworkMessage("disconnect", new byte[0]));
             tokenSource?.Cancel();
-            tcpClient.Close();
+            Stream?.Close();
+            tcpClient?.Close();
             OnDisconnect?.Invoke(this);
         }
 
@@ -65,8 +89,14 @@ namespace TheMarketingPlatform.Core.Network
             Task.Run(() =>
             {
                 var message = ReciveMessage();
-                OnMessageRecived?.Invoke(this, message);
-                BeginRecive();
+
+                if (!message.IsEmpty)
+                    OnMessageRecived?.Invoke(this, message);
+
+                if (Connected)
+                    BeginRecive();
+                else
+                    OnDisconnect?.Invoke(this);
             }, tokenSource.Token);
         }
 
@@ -82,40 +112,63 @@ namespace TheMarketingPlatform.Core.Network
 
         public void SendAsync(NetworkMessage message) => Task.Run(() => Send(message), tokenSource.Token);
 
+
         private NetworkMessage ReadSecure()
         {
+            if (!Connected)
+                return NetworkMessage.EmptyMessage;
+
             var data = new byte[0];
             var vector = new byte[0];
 
-            using (var stream = new MemoryStream(ReadStream()))
+            try
             {
-                using (var reader = new BinaryReader(stream))
+                using (var stream = new MemoryStream(ReadStream()))
                 {
-                    vector = reader.ReadBytes(reader.ReadInt32());
-                    data = reader.ReadBytes(reader.ReadInt32());
+                    using (var reader = new BinaryReader(stream))
+                    {
+                        vector = reader.ReadBytes(reader.ReadInt32());
+                        data = reader.ReadBytes(reader.ReadInt32());
+                    }
                 }
-            }
 
-            return NetworkMessage.Deserialize(Encryption.Decrypt(data, key, vector));
+                return NetworkMessage.Deserialize(Encryption.Decrypt(data, key, vector));
+            }
+            catch (Exception)
+            {
+                EmptyCount++;
+                return NetworkMessage.EmptyMessage;
+            }
         }
 
         private NetworkMessage Read() => NetworkMessage.Deserialize(ReadStream());
 
         private void WriteSecure(NetworkMessage message)
         {
-            var vector = Encryption.GetVector();
-            var data = Encryption.Encrypt(NetworkMessage.Serialize(message), key, vector);
+            if (!Connected)
+                return;
 
-            using (var stream = new MemoryStream())
+            try
             {
-                using (var writer = new BinaryWriter(stream))
+                var vector = Encryption.GetVector();
+                var data = Encryption.Encrypt(NetworkMessage.Serialize(message), key, vector);
+
+                using (var stream = new MemoryStream())
                 {
-                    writer.Write(vector.Length);
-                    writer.Write(vector);
-                    writer.Write(data.Length);
-                    writer.Write(data);
+                    using (var writer = new BinaryWriter(stream))
+                    {
+                        writer.Write(vector.Length);
+                        writer.Write(vector);
+                        writer.Write(data.Length);
+                        writer.Write(data);
+                    }
+                    WriteStream(stream.ToArray());
                 }
-                WriteStream(stream.ToArray());
+            }
+            catch (Exception)
+            {
+                EmptyCount++;
+                return;
             }
         }
 
@@ -134,6 +187,7 @@ namespace TheMarketingPlatform.Core.Network
             }
             catch (Exception)
             {
+                EmptyCount++;
                 data = null;
             }
 
@@ -153,8 +207,44 @@ namespace TheMarketingPlatform.Core.Network
             }
             catch (Exception)
             {
+                EmptyCount++;
                 return;
             }
+        }
+
+        public static byte[] GetDataFromList(List<byte[]> dataList)
+        {
+            using (var stream = new MemoryStream())
+            {
+                using (var writer = new BinaryWriter(stream))
+                {
+                    writer.Write(dataList.Count);
+                    foreach (var byteArray in dataList)
+                    {
+                        writer.Write(byteArray.Length);
+                        writer.Write(byteArray);
+                    }
+                }
+                return stream.ToArray();
+            }
+        }
+
+        public static List<byte[]> GetListFromData(byte[] data)
+        {
+            var list = new List<byte[]>();
+            using (var stream = new MemoryStream(data))
+            {
+                using (var reader = new BinaryReader(stream))
+                {
+                    var count = reader.ReadUInt32();
+
+                    for (int i = 0; i < count; i++)
+                        list.Add(
+                            reader.ReadBytes(reader.ReadInt32()));
+                }
+            }
+
+            return list;
         }
     }
 }

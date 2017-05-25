@@ -7,7 +7,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using TheMarketingPlatform.Client;
-using TheMarketingPlatform.Client.Commands;
 
 namespace TheMarketingPlatform
 {
@@ -20,19 +19,16 @@ namespace TheMarketingPlatform
         private SettingsHandler settingsHandler;
         private TrayIcon trayIcon;
         private Timer timer;
-        private ClientCommandManager commandManager;
 
         public App()
         {
             settingsHandler = new SettingsHandler();
-            commandManager = new ClientCommandManager(settingsHandler);
             
             if ((bool)settingsHandler["Initializes"])
-                Task.Run(() => InitializeClient(null));
-
+                Task.Run(() => InitializeClient());            
         }
 
-        private void InitializeClient(object state)
+        private void InitializeClient()
         {
             short connectionFailure = 0;
             bool connectionFail = true;
@@ -56,16 +52,14 @@ namespace TheMarketingPlatform
 
             if (connectionFail)
             {
-                timer = new Timer(InitializeClient, null, 3000, 3000);
-            }
-            else
-            {
-                timer.Dispose();
+                Thread.Sleep(3000);
+                InitializeClient();
             }
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
+            client?.Disconnect();
             base.OnExit(e);
         }
 

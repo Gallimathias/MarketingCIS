@@ -72,18 +72,24 @@ namespace TheMarketingPlatform.Service
 
             client.Send(NetworkMessage.DefaultOk);
 
-            client.OnMessageRecived += Client_OnMessageRecived;
+            //client.OnMessageRecived += Client_OnMessageRecived;
             client.OnDisconnect += Client_OnDisconnect;
-            client.BeginRecive();
+            //client.BeginRecive();
             ClientReady?.Invoke(client);
+            Client_OnMessageRecived(client, client.ReciveMessage());
         }
 
         private void Client_OnDisconnect(TcpConnection tcpConnection) =>
             Connections.TryRemove(tcpConnection.Id, out tcpConnection);
 
         private void Client_OnMessageRecived(TcpConnection tcpConnection, NetworkMessage networkMessage)
-            => CommandManager.DispatchAsync(
-                networkMessage.Tag, new KeyValuePair<TcpConnection, byte[]>(tcpConnection, networkMessage.Payload));
+        {
+            CommandManager.DispatchAsync(
+                  networkMessage.Tag, new KeyValuePair<TcpConnection, byte[]>(tcpConnection, networkMessage.Payload));
+
+            if (tcpConnection.Connected)
+                Client_OnMessageRecived(tcpConnection, tcpConnection.ReciveMessage());
+        }
 
         private void DiffieHellman(TcpConnection client)
         {
@@ -97,7 +103,7 @@ namespace TheMarketingPlatform.Service
 
                 client.Send(new NetworkMessage(null, ecd.PublicKey.ToByteArray()));
                 client.Key = ecd.DeriveKeyMaterial(CngKey.Import(publicKey, CngKeyBlobFormat.EccPublicBlob));
-            }            
+            }
         }
     }
 }

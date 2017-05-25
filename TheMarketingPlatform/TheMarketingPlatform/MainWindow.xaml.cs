@@ -27,12 +27,13 @@ namespace TheMarketingPlatform
             InitializeComponent();
             InitializeMenuItems();
 
+            MainFrame.SizeChanged += (s, e) => { Console.WriteLine(); };
+
             if (!(bool)settingsHandler["Initializes"])
                 MainFrame.Navigate(ContenManager.GetPage("Settings", settingsHandler));
             else
                 MainFrame.Navigate(ContenManager.GetPage("Tickets", settingsHandler));
 
-            SizeChanged += (s, e) => Console.WriteLine($"Width: {Width}| Height: {Height}");
         }
 
         private void InitializeMenuItems()
@@ -43,8 +44,13 @@ namespace TheMarketingPlatform
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(
-                ContenManager.GetPage((string)((MenuItem)sender).Tag, settingsHandler));
+            try
+            {
+                
+                MainFrame.Navigate(
+                    ContenManager.GetPage((string)((MenuItem)sender).Tag, settingsHandler));
+            }
+            catch (Exception) { }
         }
     }
 }
