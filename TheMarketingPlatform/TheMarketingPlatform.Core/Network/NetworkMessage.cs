@@ -13,7 +13,9 @@ namespace TheMarketingPlatform.Core.Network
         public string Tag { get; set; }
         [JsonIgnore]
         public byte[] Payload { get; set; }
-        
+        public bool IsEmpty => (string.IsNullOrEmpty(Tag) || Tag == "+") && Payload.Length == 0;
+
+
         public NetworkMessage(string tag, byte[] payload)
         {
             Tag = tag;
@@ -22,6 +24,7 @@ namespace TheMarketingPlatform.Core.Network
 
         public static NetworkMessage DefaultOk => new NetworkMessage("+OK", new byte[0]);
         public static NetworkMessage DefaultError => new NetworkMessage("+ERR", new byte[0]);
+        public static NetworkMessage EmptyMessage => new NetworkMessage("+", new byte[0]);
 
         public static byte[] Serialize(NetworkMessage message)
         {

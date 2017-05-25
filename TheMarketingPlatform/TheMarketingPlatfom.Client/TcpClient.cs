@@ -6,18 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using TheMarketingPlatform.Core.Network;
 
-namespace TheMarketingPlatfom.Client
+namespace TheMarketingPlatform.Client
 {
-    public class Client : TcpConnection
+    public class TcpClient : TcpConnection
     {
-        public Client(string host, int port) : base(host, port)
+        public TcpClient(string host, int port) : base(host, port)
         {
         }
 
         public void Connect()
         {
             Send(NetworkMessage.DefaultOk);
-            ReciveMessage();
+
+            if (ReciveMessage().IsEmpty)
+                return;
 
             using (var ecd = new ECDiffieHellmanCng() {
                 KeyDerivationFunction = ECDiffieHellmanKeyDerivationFunction.Hash,
@@ -30,6 +32,11 @@ namespace TheMarketingPlatfom.Client
                 Key = ecd.DeriveKeyMaterial(CngKey.Import(publicKey, CngKeyBlobFormat.EccPublicBlob));
             }
 
+            Send(NetworkMessage.DefaultOk);
+
+            if (ReciveMessage().IsEmpty)
+                return;
+            
         }
     }
 }

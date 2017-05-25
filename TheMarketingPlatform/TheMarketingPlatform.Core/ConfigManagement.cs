@@ -11,8 +11,34 @@ namespace TheMarketingPlatform.Core
 {
     public class ConfigManagement : Dictionary<string, object>
     {
+        protected Config Config { get => config; set => config = value; }
+
         private Config config;
         private FileInfo configFile;
+
+        public delegate void ConfigManagementEventHandler(string key, object value);
+        public event ConfigManagementEventHandler ValueHasChanged;
+
+        public ConfigManagement()
+        {
+            ValueHasChanged += ConfigManagement_ValueHasChanged;
+        }
+               
+
+        public new object this[string key]
+        {
+            get => base[key];
+            set
+            {
+                var oldValue = base[key];
+                var newValue = TryToConvert(value, oldValue);
+                base[key] = newValue;
+                if (oldValue != newValue)
+                    ValueHasChanged?.Invoke(key, newValue);
+            }
+        }
+
+        public T GetValue<T>(string key) => TryToConvert<T>(this[key]);
 
         public (bool loaded, Exception exception) Load(string fullName)
         {
@@ -39,6 +65,14 @@ namespace TheMarketingPlatform.Core
 
         public void ApplyChangesToFile() =>
             File.WriteAllText(configFile.FullName, JsonConvert.SerializeObject(config, Formatting.Indented));
+        
+        private object TryToConvert(object value, Type type) => Convert.ChangeType(value, type);
+        private object TryToConvert(object value, object oldValue) => TryToConvert(value, oldValue.GetType());
+        private T TryToConvert<T>(object value) => (T)TryToConvert(value, typeof(T));
 
+        private void ConfigManagement_ValueHasChanged(string key, object value)
+        {
+            config.Settings[key] = value;
+        }
     }
 }

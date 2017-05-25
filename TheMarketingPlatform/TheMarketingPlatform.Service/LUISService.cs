@@ -50,6 +50,8 @@ namespace TheMarketingPlatform.Service
 
         internal void HandleMessages(MimeMessage[] mimeMessages)
         {
+            SettingsHandler.NewMessage = true;
+
             foreach (var message in mimeMessages)
                 messageQueue.Enqueue(message);
 

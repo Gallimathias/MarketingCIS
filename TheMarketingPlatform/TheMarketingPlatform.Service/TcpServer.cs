@@ -46,10 +46,15 @@ namespace TheMarketingPlatform.Service
             BeginAcceptTcpClient(HandShake, null);
             var client = new TcpConnection(EndAcceptTcpClient(ar));
             ClientConnect?.Invoke(client);
-            var message = client.ReciveMessage();
+            if (client.ReciveMessage().IsEmpty)
+                return;
+
             client.Send(NetworkMessage.DefaultOk);
 
             DiffieHellman(client);
+
+            if (client.ReciveMessage().IsEmpty)
+                return;
 
             var random = new Random();
             var id = random.Next();
@@ -64,17 +69,27 @@ namespace TheMarketingPlatform.Service
             }
 
             client.Id = id;
-            client.OnMessageRecived += Client_OnMessageRecived;
+
+            client.Send(NetworkMessage.DefaultOk);
+
+            //client.OnMessageRecived += Client_OnMessageRecived;
             client.OnDisconnect += Client_OnDisconnect;
-            client.ReciveMessage();
+            //client.BeginRecive();
             ClientReady?.Invoke(client);
+            Client_OnMessageRecived(client, client.ReciveMessage());
         }
 
         private void Client_OnDisconnect(TcpConnection tcpConnection) =>
             Connections.TryRemove(tcpConnection.Id, out tcpConnection);
 
         private void Client_OnMessageRecived(TcpConnection tcpConnection, NetworkMessage networkMessage)
-            => CommandManager.DispatchAsync(networkMessage.Tag, networkMessage.Payload);
+        {
+            CommandManager.DispatchAsync(
+                  networkMessage.Tag, new KeyValuePair<TcpConnection, byte[]>(tcpConnection, networkMessage.Payload));
+
+            if (tcpConnection.Connected)
+                Client_OnMessageRecived(tcpConnection, tcpConnection.ReciveMessage());
+        }
 
         private void DiffieHellman(TcpConnection client)
         {

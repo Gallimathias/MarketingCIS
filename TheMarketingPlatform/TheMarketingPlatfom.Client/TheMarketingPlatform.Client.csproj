@@ -7,8 +7,8 @@
     <ProjectGuid>{A0C54CE7-4344-42E8-8867-C5E443C0B6EF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TheMarketingPlatfom.Client</RootNamespace>
-    <AssemblyName>TheMarketingPlatfom.Client</AssemblyName>
+    <RootNamespace>TheMarketingPlatform.Client</RootNamespace>
+    <AssemblyName>TheMarketingPlatform.Client</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Command Management System, Version=2.0.6353.31217, Culture=neutral, PublicKeyToken=304a821013b0b687, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommandManagementSystem.2.0.0-alpha1\lib\net47\Command Management System.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
+    <Compile Include="Notification.cs" />
+    <Compile Include="TcpClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TheMarketingPlatform.Core\TheMarketingPlatform.Core.csproj">
@@ -49,5 +57,9 @@
       <Name>TheMarketingPlatform.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
