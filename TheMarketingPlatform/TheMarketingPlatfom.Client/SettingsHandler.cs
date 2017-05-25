@@ -10,8 +10,13 @@ namespace TheMarketingPlatfom.Client
 {
     public class SettingsHandler : ConfigManagement
     {
-        public Client Client { get; set; }
+        public Client Client { get => client; set {
+                client = value;
+                client.OnConnect += (s) => ClientIsReady?.Invoke(this, client);
+            } }
+        private Client client;
 
+        public event EventHandler<Client> ClientIsReady;
         public SettingsHandler()
         {
             var path = Registry.GetValue(
