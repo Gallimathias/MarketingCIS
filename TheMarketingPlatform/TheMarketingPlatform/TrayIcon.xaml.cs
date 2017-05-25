@@ -25,12 +25,16 @@ namespace TheMarketingPlatform
     {
         private NotifyIcon notifyIcon;
         private SettingsHandler settingsHandler;
-        private Client client;
 
-        public TrayIcon()
+        public TrayIcon(SettingsHandler settingsHandler)
         {
+            this.settingsHandler = settingsHandler;
             InitializeComponent();
-            
+            InitializeNotifyIcon();
+        }
+
+        private void InitializeNotifyIcon()
+        {
             notifyIcon = new NotifyIcon()
             {
                 Visible = true,
@@ -40,19 +44,12 @@ namespace TheMarketingPlatform
 
             notifyIcon.ContextMenu = new System.Windows.Forms.ContextMenu();
             var closeItem = new System.Windows.Forms.MenuItem("Close");
+            var mainItem = new System.Windows.Forms.MenuItem("Show MainWindow");
+            mainItem.Click += (s, e) => new MainWindow(settingsHandler).Show();
             closeItem.Click += (s, e) => Close();
+            notifyIcon.ContextMenu.MenuItems.Add(mainItem);
             notifyIcon.ContextMenu.MenuItems.Add(closeItem);
-
-            settingsHandler = new SettingsHandler();
-            InitializeClient();
-                        
         }
-
-        private void InitializeClient()
-        {
-            client = new Client((string)settingsHandler["Host"], (int)(long)settingsHandler["Port"]);
-            client.Connect();
-            client.Send(new Core.Network.NetworkMessage("test", new byte[0]));
-        }
+        
     }
 }

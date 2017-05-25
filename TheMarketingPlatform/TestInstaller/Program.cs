@@ -45,9 +45,11 @@ namespace TestInstaller
             conf = new Config();
             conf.Settings.Add("Host", "localhost");
             conf.Settings.Add("Port", 33333);
+            conf.Settings.Add("Initializes", false);
+            conf.Settings.Add("MaxConnectionRetries", 3);
 
             File.WriteAllText(@"C:\Temp\MainClient.config", JsonConvert.SerializeObject(conf, Formatting.Indented));
-
+            
         }
     }
 }

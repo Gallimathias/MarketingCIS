@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace TheMarketingPlatform.Service
 {
     [CommandManager("ServiceCommandManager", "TheMarketingPlatform.Service.Commands")]
-    internal class ServiceCommandManager : CommandManager<string, byte[], bool>
+    internal class ServiceCommandManager : CommandManager<string, byte[], object>
     {
         public ServiceCommandManager() : base()
         {

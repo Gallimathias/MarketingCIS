@@ -10,6 +10,8 @@ namespace TheMarketingPlatfom.Client
 {
     public class SettingsHandler : ConfigManagement
     {
+        public Client Client { get; set; }
+
         public SettingsHandler()
         {
             var path = Registry.GetValue(
@@ -24,5 +26,6 @@ namespace TheMarketingPlatfom.Client
             if (!loadingResult.loaded)
                 throw new Exception("Load file failed", loadingResult.exception);
         }
+
     }
 }

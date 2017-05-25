@@ -14,6 +14,39 @@ namespace TheMarketingPlatform.Core
         private Config config;
         private FileInfo configFile;
 
+        public delegate void ConfigManagementEventHandler(string key, object value);
+        public event ConfigManagementEventHandler ValueHasChanged;
+
+        public ConfigManagement()
+        {
+            ValueHasChanged += ConfigManagement_ValueHasChanged;
+        }
+
+        private void ConfigManagement_ValueHasChanged(string key, object value)
+        {
+            config.Settings[key] = value;
+        }
+
+        public new object this[string key]
+        {
+            get => base[key];
+            set
+            {
+                var oldValue = base[key];
+                var newValue = TryToConvert(value, oldValue);
+                base[key] = newValue;
+                if (oldValue != newValue)
+                    ValueHasChanged?.Invoke(key, newValue);
+            }
+        }
+
+        public T GetValue<T>(string key) => TryToConvert<T>(this[key]);
+
+        private object TryToConvert(object value, Type type) => Convert.ChangeType(value, type);
+        private object TryToConvert(object value, object oldValue) => TryToConvert(value, oldValue.GetType());
+        private T TryToConvert<T>(object value) => (T)TryToConvert(value, typeof(T));
+
+
         public (bool loaded, Exception exception) Load(string fullName)
         {
             configFile = new FileInfo(fullName);
