@@ -82,7 +82,8 @@ namespace TheMarketingPlatform.Service
             Connections.TryRemove(tcpConnection.Id, out tcpConnection);
 
         private void Client_OnMessageRecived(TcpConnection tcpConnection, NetworkMessage networkMessage)
-            => CommandManager.DispatchAsync(networkMessage.Tag, networkMessage.Payload);
+            => CommandManager.DispatchAsync(
+                networkMessage.Tag, new KeyValuePair<TcpConnection, byte[]>(tcpConnection, networkMessage.Payload));
 
         private void DiffieHellman(TcpConnection client)
         {

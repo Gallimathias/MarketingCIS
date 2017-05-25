@@ -6,17 +6,26 @@ using System.Text;
 using System.Threading.Tasks;
 using TheMarketingPlatform.Core;
 
-namespace TheMarketingPlatfom.Client
+namespace TheMarketingPlatform.Client
 {
     public class SettingsHandler : ConfigManagement
     {
-        public Client Client { get => client; set {
+        public TcpClient Client
+        {
+            get => client; set
+            {
                 client = value;
                 client.OnConnect += (s) => ClientIsReady?.Invoke(this, client);
-            } }
-        private Client client;
+            }
+        }
 
-        public event EventHandler<Client> ClientIsReady;
+        public ClientCommandManager CommandManager { get; internal set; }
+
+        private TcpClient client;
+
+        public event EventHandler<TcpClient> ClientIsReady;
+        public event EventHandler<Notification> OnNotify;
+
         public SettingsHandler()
         {
             var path = Registry.GetValue(
@@ -31,6 +40,9 @@ namespace TheMarketingPlatfom.Client
             if (!loadingResult.loaded)
                 throw new Exception("Load file failed", loadingResult.exception);
         }
+
+        public void Notifycate(object sender, Notification notification) => OnNotify?.Invoke(sender, notification);
+
 
     }
 }

@@ -6,19 +6,37 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using TheMarketingPlatform.Client;
+using TheMarketingPlatform.Client.Commands;
 using TheMarketingPlatform.Core.Network;
-using TheMarketingPlatform.Service.Commands;
 
-namespace TheMarketingPlatform.Service
+namespace TheMarketingPlatform.Client
 {
-    [CommandManager("ServiceCommandManager", "TheMarketingPlatform.Service.Commands")]
-    internal class ServiceCommandManager : CommandManager<string, KeyValuePair<TcpConnection, byte[]>, object>
+    [CommandManager("ClientCommandManager", "TheMarketingPlatform.Client.Commands")]
+    public class ClientCommandManager : CommandManager<string, KeyValuePair<TcpClient, byte[]>, object>
     {
         SettingsHandler settingsHandler;
+        TcpClient client;
 
-        public ServiceCommandManager(SettingsHandler settingsHandler) : base()
+        public ClientCommandManager(SettingsHandler settingsHandler) : base()
         {
             this.settingsHandler = settingsHandler;
+            
+            settingsHandler.CommandManager = this;
+            OneTimeCommands.SettingsHandler = settingsHandler;
+
+            settingsHandler.ClientIsReady += (o, t) =>
+            { 
+                Task.Run(() =>
+                {
+                    while (settingsHandler.Client == null || !settingsHandler.Client.Connected) ;
+                    client = settingsHandler.Client;
+                    client.OnMessageRecived += (s, e) =>
+                        DispatchAsync(e.Tag, new KeyValuePair<TcpClient, byte[]>(client, e.Payload));
+                    client.BeginRecive();
+                });
+
+            };
         }
 
         public override void Initialize()
@@ -48,8 +66,8 @@ namespace TheMarketingPlatform.Service
                     m => m.GetCustomAttribute<OneTimeCommandAttribute>() != null);
                 foreach (var member in members)
                 {
-                    commandHandler[(string)member.GetCustomAttribute<OneTimeCommandAttribute>().Tag] += (Func<KeyValuePair<TcpConnection, byte[]>, object>)(
-                        (MethodInfo)member).CreateDelegate(typeof(Func<KeyValuePair<TcpConnection, byte[]>, object>));
+                    commandHandler[(string)member.GetCustomAttribute<OneTimeCommandAttribute>().Tag] += (Func<KeyValuePair<TcpClient, byte[]>, object>)(
+                        (MethodInfo)member).CreateDelegate(typeof(Func<KeyValuePair<TcpClient, byte[]>, object>));
                 }
 
             }

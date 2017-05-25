@@ -7,6 +7,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TheMarketingPlatform.Service.Commands;
 
 namespace TheMarketingPlatform.Service
 {
@@ -24,9 +25,9 @@ namespace TheMarketingPlatform.Service
 
             manualResetEvent = new ManualResetEvent(false);
             settingsHandler = new SettingsHandler();
-
-            //commandManager = new DefaultCommandManager("TheMarketingPlatform.Service.Commands");
-            commandManager = new ServiceCommandManager();
+            
+            commandManager = new ServiceCommandManager(settingsHandler);
+            OneTimeCommands.SettingsHandler = settingsHandler;
 
 
             mailService = new MailService(settingsHandler);

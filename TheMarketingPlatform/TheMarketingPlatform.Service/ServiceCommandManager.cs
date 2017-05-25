@@ -6,15 +6,19 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using TheMarketingPlatform.Core.Network;
+using TheMarketingPlatform.Service.Commands;
 
 namespace TheMarketingPlatform.Service
 {
     [CommandManager("ServiceCommandManager", "TheMarketingPlatform.Service.Commands")]
-    internal class ServiceCommandManager : CommandManager<string, byte[], object>
+    internal class ServiceCommandManager : CommandManager<string, KeyValuePair<TcpConnection, byte[]>, object>
     {
-        public ServiceCommandManager() : base()
-        {
+        SettingsHandler settingsHandler;
 
+        public ServiceCommandManager(SettingsHandler settingsHandler) : base()
+        {
+            this.settingsHandler = settingsHandler;
         }
 
         public override void Initialize()
@@ -26,12 +30,29 @@ namespace TheMarketingPlatform.Service
 
             foreach (var command in commands)
             {
-                command.GetMethod("Register",BindingFlags.Public | BindingFlags.Static)?.Invoke(null, null);
                 commandHandler[(string)command.GetCustomAttribute<CommandAttribute>().Tag] += (e)
-                    => InitializeCommand(command, e);
+                    => InitializeCommand(command, e, settingsHandler);
             }
 
             InitializeOneTimeCommand(commandNamespace);
+        }
+
+        public new void InitializeOneTimeCommand(string[] namespaces)
+        {
+            var types = Assembly.GetExecutingAssembly().GetTypes().Where(
+                t => namespaces.Contains(t.Namespace)).ToArray();
+
+            for (int i = 0; i < types.Length; i++)
+            {
+                var members = types[i].GetMembers(BindingFlags.Static | BindingFlags.Public).Where(
+                    m => m.GetCustomAttribute<OneTimeCommandAttribute>() != null);
+                foreach (var member in members)
+                {
+                    commandHandler[(string)member.GetCustomAttribute<OneTimeCommandAttribute>().Tag] += (Func<KeyValuePair<TcpConnection, byte[]>, object>)(
+                        (MethodInfo)member).CreateDelegate(typeof(Func<KeyValuePair<TcpConnection, byte[]>, object>));
+                }
+
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatform.Mail",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatfrom.CognitiveServices", "TheMarketingPlatfrom.CognitiveServices\TheMarketingPlatfrom.CognitiveServices.csproj", "{EA8DF9FB-70FB-4D45-8C43-34666B121865}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatfom.Client", "TheMarketingPlatfom.Client\TheMarketingPlatfom.Client.csproj", "{A0C54CE7-4344-42E8-8867-C5E443C0B6EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatform.Client", "TheMarketingPlatfom.Client\TheMarketingPlatform.Client.csproj", "{A0C54CE7-4344-42E8-8867-C5E443C0B6EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMarketingPlatform", "TheMarketingPlatform\TheMarketingPlatform.csproj", "{20A79CB2-882F-430A-9B18-1EC0CC469BE7}"
 EndProject

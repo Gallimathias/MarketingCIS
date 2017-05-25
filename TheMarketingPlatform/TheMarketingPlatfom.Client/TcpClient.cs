@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TheMarketingPlatform.Core.Network;
 
-namespace TheMarketingPlatfom.Client
+namespace TheMarketingPlatform.Client
 {
-    public class Client : TcpConnection
+    public class TcpClient : TcpConnection
     {
-        public Client(string host, int port) : base(host, port)
+        public TcpClient(string host, int port) : base(host, port)
         {
         }
 

@@ -13,14 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
-using TheMarketingPlatfom.Client;
+using TheMarketingPlatform.Client;
 
 
 namespace TheMarketingPlatform
 {
-    /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
-    /// </summary>
     public partial class TrayIcon : Window
     {
         private NotifyIcon notifyIcon;
@@ -31,7 +28,13 @@ namespace TheMarketingPlatform
             this.settingsHandler = settingsHandler;
             InitializeComponent();
             InitializeNotifyIcon();
+
+            settingsHandler.OnNotify += SettingsHandler_OnNotify; ;
         }
+
+        private void SettingsHandler_OnNotify(object sender, Notification e) =>
+            notifyIcon.ShowBalloonTip(e.Timeout, e.TipTitle, e.TipText, (ToolTipIcon)e.TipIcon);
+
 
         private void InitializeNotifyIcon()
         {
@@ -40,8 +43,7 @@ namespace TheMarketingPlatform
                 Visible = true,
                 Icon = new System.Drawing.Icon("Speech-Bubble-Icons.ico")
             };
-
-
+            
             notifyIcon.ContextMenu = new System.Windows.Forms.ContextMenu();
             var closeItem = new System.Windows.Forms.MenuItem("Close");
             var mainItem = new System.Windows.Forms.MenuItem("Show MainWindow");
@@ -50,6 +52,6 @@ namespace TheMarketingPlatform
             notifyIcon.ContextMenu.MenuItems.Add(mainItem);
             notifyIcon.ContextMenu.MenuItems.Add(closeItem);
         }
-        
+
     }
 }

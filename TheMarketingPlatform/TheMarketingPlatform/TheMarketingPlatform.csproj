@@ -118,9 +118,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TheMarketingPlatfom.Client\TheMarketingPlatfom.Client.csproj">
+    <ProjectReference Include="..\TheMarketingPlatfom.Client\TheMarketingPlatform.Client.csproj">
       <Project>{a0c54ce7-4344-42e8-8867-c5e443c0b6ef}</Project>
-      <Name>TheMarketingPlatfom.Client</Name>
+      <Name>TheMarketingPlatform.Client</Name>
     </ProjectReference>
     <ProjectReference Include="..\TheMarketingPlatform.Core\TheMarketingPlatform.Core.csproj">
       <Project>{B2E5D50A-85E1-4C46-864C-066C65771D96}</Project>

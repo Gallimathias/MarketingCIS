@@ -5,20 +5,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheMarketingPlatform.Core.Network;
 
 namespace TheMarketingPlatform.Service.Commands
 {
     [Command("test")]
-    class TestCommand : Command<byte[], object>
+    class TestCommand : Command<KeyValuePair<TcpConnection, byte[]>, object>
     {
-        public override object Main(byte[] arg)
+        SettingsHandler settingsHandler;
+        public TestCommand(SettingsHandler settingsHandler) : base()
         {
-            return base.Main(arg);
+            this.settingsHandler = settingsHandler;
         }
 
-        public void Register()
+        public override object Main(KeyValuePair<TcpConnection, byte[]> arg)
         {
-            Registration();
+            NextFunction = null;
+            return arg;
         }
+        
     }
 }
