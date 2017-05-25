@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TheMarketingPlatform.Client</name>
+    </assembly>
+    <members>
+        <member name="T:TheMarketingPlatform.Client.TcpClient">
+            <summary>
+            A Implementation of tcpConnection with diffieHellamn
+            </summary>
+        </member>
+        <member name="M:TheMarketingPlatform.Client.TcpClient.Connect">
+            <summary>
+            Handshake with server. Contains a diffieHellmann key exchange
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TheMarketingPlatform" Class="MainDatabaseContext" AccessModifier="Internal" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=HAL2015;Initial Catalog=TheMarketingPlatform;Integrated Security=True;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="TheMarketingPlatform.Database.Properties.Settings" SettingsPropertyName="TheMarketingPlatformConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.LuisEntity" Member="LuisEntity">
+    <Type Name="LuisEntity">
+      <Column Name="LuisResponseId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Entity" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="StartIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EndIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Score" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="LuisResponse_LuisEntity" Member="LuisResponse" ThisKey="LuisResponseId" OtherKey="Id" Type="LuisResponse" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LuisIntent" Member="LuisIntent">
+    <Type Name="LuisIntent">
+      <Column Name="LuisResponseId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Intent" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Score" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="IsTopScore" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="LuisResponse_LuisIntent" Member="LuisResponse" ThisKey="LuisResponseId" OtherKey="Id" Type="LuisResponse" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LuisResponse" Member="LuisResponse">
+    <Type Name="LuisResponse">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MailId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="LuisResponse_LuisEntity" Member="LuisEntity" ThisKey="Id" OtherKey="LuisResponseId" Type="LuisEntity" />
+      <Association Name="LuisResponse_LuisIntent" Member="LuisIntent" ThisKey="Id" OtherKey="LuisResponseId" Type="LuisIntent" />
+      <Association Name="Mail_LuisResponse" Member="Mail" ThisKey="MailId" OtherKey="Id" Type="Mail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mail" Member="Mail">
+    <Type Name="Mail">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(254)" CanBeNull="true" />
+      <Column Name="Body" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="Mail_LuisResponse" Member="LuisResponse" ThisKey="Id" OtherKey="MailId" Type="LuisResponse" />
+      <Association Name="Mail_MailAddress" Member="MailAddress" ThisKey="Id" OtherKey="MailId" Type="MailAddress" />
+      <Association Name="Mail_MailAttachment" Member="MailAttachment" ThisKey="Id" OtherKey="MailId" Type="MailAttachment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MailAccount" Member="MailAccount">
+    <Type Name="MailAccount">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Port" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Host" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="UseSsl" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Data.Linq.Binary" DbType="Binary(1) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="MailAccount_MailAccountFolder" Member="MailAccountFolder" ThisKey="Id" OtherKey="MailAccountId" Type="MailAccountFolder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MailAccountFolder" Member="MailAccountFolder">
+    <Type Name="MailAccountFolder">
+      <Column Name="MailAccountId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Folder" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="MailAccount_MailAccountFolder" Member="MailAccount" ThisKey="MailAccountId" OtherKey="Id" Type="MailAccount" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MailAddress" Member="MailAddress">
+    <Type Name="MailAddress">
+      <Column Name="MailId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Adress" Type="System.String" DbType="NVarChar(254) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.Data.Linq.Binary" DbType="Binary(1) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Mail_MailAddress" Member="Mail" ThisKey="MailId" OtherKey="Id" Type="Mail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MailAttachment" Member="MailAttachment">
+    <Type Name="MailAttachment">
+      <Column Name="MailId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Attachment" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="FileExtension" Type="System.String" DbType="NVarChar(260)" CanBeNull="true" />
+      <Association Name="Mail_MailAttachment" Member="Mail" ThisKey="MailId" OtherKey="Id" Type="Mail" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
